@@ -27,6 +27,8 @@ set(NEURO_OS_TEST_SRC tests/test_test.cpp tests/test_sim_process_system.cpp test
 if(NOS_ENABLE_UNIT_TESTS)
     set(CATCH_CONFIG_ENABLE_BENCHMARKING 1)
     add_compile_definitions(CATCH_CONFIG_ENABLE_BENCHMARKING)
+    find_package(catch2)
+
     #add_subdirectory(lib/catch2)
     set(CATCH_CONFIG_ENABLE_BENCHMARKING 1)
     add_executable(nos_tests ${NEURO_OS_TEST_SRC})
@@ -45,8 +47,8 @@ if(NOS_ENABLE_UNIT_TESTS)
     set(CATCH_INSTALL_HELPERS ON)
     message("----------- ${CMAKE_MODULE_PATH}")
 
-    catch_discover_tests(nos_tests )
-    ParseAndAddCatchTests(nos_tests)
+   catch_discover_tests(nos_tests )
+#    ParseAndAddCatchTests(nos_tests)
     message("Enabled FCFS system tests")
 endif()
 
