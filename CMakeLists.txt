@@ -1,7 +1,7 @@
 ### FCFS PROCESS LIBRARY
 cmake_minimum_required(VERSION 3.5)
-
-OPTION(NOS_ENABLE_UNIT_TESTS  "Enable FCFS unit tests (uses Catch2)" ON )
+set(CMAKE_CXX_STANDARD 11)
+OPTION(NOS_ENABLE_UNIT_TESTS  "Enable FCFS unit tests (uses Catch2)" OFF )
 project(NeuroOS LANGUAGES CXX VERSION 0.1.5)
 
 
@@ -14,11 +14,20 @@ set(NEURO_OS_LIB
         src/SimProcessSerial.cpp
         src/SimProcessSerial.h
         src/SimProcessQueue.cpp
-        src/SimProcessQueue.h)
+        src/SimProcessQueue.h src/NengoInterface.cpp src/NengoInterface.h)
 
 add_library(neuro_os STATIC ${NEURO_OS_LIB} )
 add_executable(neuro_os_bin main.cpp)
+
+add_subdirectory(extern/pybind11)
+
+
+
+set(PYBIND11_CPP_STANDARD -std=c++11)
+
+target_link_libraries(neuro_os PRIVATE pybind11::embed)
 target_link_libraries(neuro_os_bin neuro_os)
+target_include_directories(neuro_os PUBLIC extern/pybind11)
 #target_link_libraries(fcfs_logic_system simclist)
 set_property(TARGET neuro_os PROPERTY CXX_STANDARD 14)
 enable_testing()
@@ -46,9 +55,8 @@ if(NOS_ENABLE_UNIT_TESTS)
     set(CATCH_INSTALL_DOCS OFF)
     set(CATCH_INSTALL_HELPERS ON)
     message("----------- ${CMAKE_MODULE_PATH}")
-
-   catch_discover_tests(nos_tests )
-#    ParseAndAddCatchTests(nos_tests)
+    catch_discover_tests(nos_tests )
+    ParseAndAddCatchTests(nos_tests)
     message("Enabled FCFS system tests")
 endif()
 

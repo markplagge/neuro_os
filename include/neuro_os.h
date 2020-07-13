@@ -9,6 +9,7 @@
 #include "../src/SimProcess.h"
 #include "../src/SimProcessSerial.h"
 #include "../src/SimProcessQueue.h"
+#include "../src/NengoInterface.h"
 #define max_proc_time 64
 
 
@@ -22,9 +23,9 @@ namespace neuro_os {
 		struct SimProc : SimProcess {};
 		struct SimProcessQueue;
 		struct SimProcessSerial;
+        struct  NengoInterface;
 
-
-	}// namespace sim_proc
+    }// namespace sim_proc
 }
 
 #endif//NEMOTNG_NEURO_OS_H
