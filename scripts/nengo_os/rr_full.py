@@ -15,7 +15,7 @@ process_states = ['WAITING', 'RUNNING', 'DONE', "PRE_WAIT"]
 
 dimensions = 16
 
-calc_n_neurons = 256
+calc_n_neurons = 4096
 
 g_num_cores = 4096
 
@@ -566,6 +566,9 @@ class SimulatedScheduler:
             self.sim = nengo.Simulator(self.model)
         global g_num_cores
         g_num_cores = num_cores
+        self.calc_n_neurons = 4096
+        self.clock_neurons = 2048
+
 
     def main_scheduler(self):
         model = spa.Network(label="Scheduler Network")
@@ -603,10 +606,10 @@ class SimulatedScheduler:
             running_procs_size_en = nengo.Ensemble(num_cores * 2, 1, radius=num_cores + 2,
                                                    neuron_type=nengo.neurons.RectifiedLinear())
 
-            num_cores_en = nengo.Ensemble(1024, 1, radius=num_cores)
+            num_cores_en = nengo.Ensemble(self.num_cores * 2, 1, radius=num_cores)
             nengo.Connection(num_cores_node, num_cores_en)
 
-            avail_procs = nengo.Ensemble(num_cores, 1, radius=num_cores)
+            avail_procs = nengo.Ensemble(num_cores * 2, 1, radius=num_cores)
             nengo.Connection(num_cores_en, avail_procs)
             nengo.Connection(running_procs_size_en, avail_procs, transform=-1)
 
@@ -617,7 +620,7 @@ class SimulatedScheduler:
             ## New Process Addition
 
             waiting_proc_q_top_size = nengo.Node(1)
-            waiting_proc_size = nengo.Ensemble(calc_n_neurons, 1, radius=num_cores)
+            waiting_proc_size = nengo.Ensemble(self.calc_n_neurons, 1, radius=num_cores)
 
             def waiting_q_input_logic(x):
                 if x <= 0:
@@ -625,8 +628,8 @@ class SimulatedScheduler:
                 else:
                     return x
 
-            can_add_next_proc = nengo.Ensemble(calc_n_neurons, 1)
-            next_proc_size_check = nengo.Ensemble(calc_n_neurons, 1,
+            can_add_next_proc = nengo.Ensemble(self.calc_n_neurons, 1)
+            next_proc_size_check = nengo.Ensemble(self.calc_n_neurons, 1,
                                                   radius=num_cores, neuron_type=nengo.neurons.SpikingRectifiedLinear())
             next_proc_size_check.intercepts = Choice([-.1])
             nengo.Connection(avail_procs, next_proc_size_check)
@@ -647,10 +650,10 @@ class SimulatedScheduler:
             nengo.Connection(qsim_waiting[1], running_procs_size_en)
 
             ###WORKS GREAT!
-            add_new_proc_system = nengo.Ensemble(calc_n_neurons, 1, radius=2, neuron_type=nengo.LIF(tau_rc=0.001))
+            add_new_proc_system = nengo.Ensemble(self.calc_n_neurons, 1, radius=2, neuron_type=nengo.LIF(tau_rc=0.001))
             nengo.Connection(can_add_next_proc, add_new_proc_system, function=np.ceil)
 
-            igm = nengo.networks.workingmemory.InputGatedMemory(calc_n_neurons, 1, difference_gain=.8)
+            igm = nengo.networks.workingmemory.InputGatedMemory(self.calc_n_neurons, 1, difference_gain=.8)
             nengo.Connection(add_new_proc_system, qsim_add_spike)
             nengo.Connection(can_add_next_proc, igm.input)
             nengo.Connection(qsim_add_spike, igm.gate)
@@ -658,7 +661,7 @@ class SimulatedScheduler:
             ## Round Robin Logic
 
             clock_in = nengo.Node(lambda t: t)
-            clock_neurons = 512
+            clock_neurons = self.clock_neurons
             nx = nengo.LIF(tau_ref=1)
             inter_clock = nengo.Ensemble(clock_neurons, dimensions=1)
             nengo.Connection(clock_in, inter_clock, function=lambda x: 0 - np.fmod(x, time_slice)[0])
