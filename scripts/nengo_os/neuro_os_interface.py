@@ -74,7 +74,7 @@ class NemoNengoInterface:
 
     def init_model(self):
         self.primary_scheduler = SimulatedScheduler(self.process_list, self.sc_mode, rr_time_slice=self.rr_time_slice,
-                                                    num_cores=self.cores_in_sim)
+                                                    num_cores=self.cores_in_sim,use_dl=self.use_neng_del)
         self.model_init = True
 
     def run_sim_time(self, n_ticks=1):
