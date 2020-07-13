@@ -120,7 +120,7 @@ class NemoNengoInterface:
     def generate_full_results(self, end_time = 5000):
         self.run_until_current_time(end_time)
     def precompute_q(self, type):
-        return self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type][float(self.precompute_time)]
+        return self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type]
 
     @property
     def precompute_run_q(self):
