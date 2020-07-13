@@ -144,7 +144,7 @@ class NemoNengoInterface:
 
 
 def test_pre():
-    iface = NemoNengoInterface(rr_time_slice=5)
+    iface = NemoNengoInterface(rr_time_slice=5,use_nengo_dl=True)
     iface.init_model()
     iface.generate_full_results(end_time=25)
     run_procs_t = {}
