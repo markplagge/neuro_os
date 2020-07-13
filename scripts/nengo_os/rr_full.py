@@ -544,6 +544,8 @@ def timer_clock(time_slice=3):
 
 class SimulatedScheduler:
     def __init__(self, process_list=None, scheduler_mode="RR", rr_time_slice=5,num_cores=4096,use_dl=False):
+        self.calc_n_neurons = 4096
+        self.clock_neurons = 2048
         self.num_cores = num_cores
         self.probes = []
         if rr_time_slice < 0:
@@ -566,8 +568,7 @@ class SimulatedScheduler:
             self.sim = nengo.Simulator(self.model)
         global g_num_cores
         g_num_cores = num_cores
-        self.calc_n_neurons = 4096
-        self.clock_neurons = 2048
+
 
 
     def main_scheduler(self):
