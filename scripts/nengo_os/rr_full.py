@@ -9,6 +9,7 @@ import numpy as np
 import operator
 # import nengo_dl
 import matplotlib.pyplot as plt
+from .print_control import d_print
 
 scheduler_states = ['ADD', 'FULL']
 process_states = ['WAITING', 'RUNNING', 'DONE', "PRE_WAIT"]
@@ -18,6 +19,7 @@ dimensions = 16
 calc_n_neurons = 4096
 
 g_num_cores = 4096
+
 
 class Process:
     def __init__(self, max_cores=4096, n_cores=None, time_needed=None, max_time=32, model_id=0, start_time = 0):
@@ -70,12 +72,12 @@ class Process:
 
         if self.run_time >= self.needed_time:
             self.current_state = process_states[2]
-            print(f"Process completed with rt:{self.run_time}, wt:{self.wait_time}")
+            d_print(f"Process completed with rt:{self.run_time}, wt:{self.wait_time}")
 
     def interrupt(self):
         if self.current_state != process_states[3]:
             self.current_state = process_states[0]
-            print(f"Proc {self.model_id} interrupt with {self.current_run_time} rt")
+            d_print(f"Proc {self.model_id} interrupt with {self.current_run_time} rt")
             self.current_run_time = 0
 
     def to_dict(self):
@@ -86,7 +88,8 @@ class Process:
             'start_time': int(self.start_time),
             'current_run_time': int(self.current_run_time),
             'state': self.current_state,
-            'model_id': int(self.model_id)
+            'model_id': int(self.model_id),
+            "needed_cores": int(self.needed_cores)
         }
 
 
@@ -126,7 +129,7 @@ def populate_waiting(start_time=1, end_time=32, num_simult=3, total=10):
     for p in waiting_processes:
         cm = f"{cm}\n" + gpp(i) + gpp(p.start_time) + gpp(p.needed_cores) + gpp(p.needed_time)
         i += 1
-    print(cm)
+    d_print(cm)
     return waiting_processes
 
 
@@ -173,9 +176,9 @@ class QueueNode:
 
         self.run_q = []
         self.last_active = 0
-        print(len(self.wait_q))
-        print("-")
-        print(self.wait_q[0].start_time)
+        d_print(len(self.wait_q))
+        d_print("-")
+        d_print(self.wait_q[0].start_time)
         self.added_element = 0
         self.output_last_active = 0
         self.stats = ""
@@ -201,7 +204,7 @@ class QueueNode:
     def run_pq(self):
         rpq = self.run_q
         rpq = sorted(rpq, key=operator.attrgetter('current_run_time'))
-        print(rpq)
+        d_print(rpq)
         if len(rpq) > 0:
             for p in rpq:
                 if p.current_state == process_states[0]:
@@ -287,7 +290,7 @@ class QueueNode:
             if len(self.wait_q) > 0:
                 wait_time_r = self.wait_q[0].wait_time
 
-            print(f"epoc_diff:{epoc_diff} | last_active: {self.last_active}|"
+            d_print(f"epoc_diff:{epoc_diff} | last_active: {self.last_active}|"
                   f"top_size:{self.get_top_proc_size(t)}"
                   f" | waiting_q_size: {len(self.wait_q)}"
                   f" | wait_time: {wait_time_r}")
@@ -318,15 +321,15 @@ class QueueNode:
         om = [0, -1]
         epoc_diff = self.epoch_diff(t)
         if epoc_diff > 0:
-            #print('------- ' + str(x))
+            #d_print('------- ' + str(x))
             #self.output_last_active = int(np.floor(t))
 
             if x[0] > 1.0:
-                #print(f"PMAN x:{x} | adder :{self.added_element}")
+                #d_print(f"PMAN x:{x} | adder :{self.added_element}")
                 # if self.added_element == 0:
                 #    self.added_element = 1
 
-                #print(f"add_new_proc: {t},{x} ")
+                #d_print(f"add_new_proc: {t},{x} ")
                 om = self.start_proc(t, om)
 
                 om[0] = -2
@@ -339,7 +342,7 @@ class QueueNode:
                 if len(self.run_q) > 0:
                     ttr = self.run_q[0].needed_time
                     pstate = self.run_q[0].current_state
-                # print(f"PMAN: {self.output_last_active} |"
+                # d_print(f"PMAN: {self.output_last_active} |"
                 #       f"RUNSZ:{self.get_running_proc_core_usage()}"
                 #       f"TTR:{ttr} | STATE:{pstate}")
                 # self.added_element = 0
@@ -352,7 +355,7 @@ class QueueNode:
         output_message = [-1]
         if x[0] >= 1.0:
             if self.check_inter(t) > 0 and t > 2:
-                print(f"PMAN INTERUPT x:{x} ")
+                d_print(f"PMAN INTERUPT x:{x} ")
                 ## Make spiking
                 num_done = 0
                 wait_append = []
@@ -362,10 +365,8 @@ class QueueNode:
                     crt = p.current_run_time
                     ts = self.time_slice
                     if (crt >= ts):
-                        #self.run_q.pop(i)
                         p.interrupt()
                         wait_append.append(p)
-                        #self.wait_q.append(p)
                     else:
                         run_append.append(p)
                 for p in wait_append:
@@ -422,7 +423,7 @@ def FCFS_sys(num_cores=4096, calc_n_neurons=512, sim_q_input=None):
         # else:
         qsim_waiting = nengo.Node(sim_q_input, size_out=3)
         fcfs.qsim_waiting = qsim_waiting
-        print(running_process_size())
+        d_print(running_process_size())
         num_cores_node = nengo.Node(num_cores)
 
         running_procs_size_en = nengo.Ensemble(calc_n_neurons, 1, radius=num_cores)
@@ -601,7 +602,7 @@ class SimulatedScheduler:
         time_slice = self.rr_time_slice
         queue_nodes = self.queue_nodes
         with model:
-            print(running_process_size())
+            d_print(running_process_size())
             num_cores_node = nengo.Node(num_cores)
 
             running_procs_size_en = nengo.Ensemble(num_cores * 2, 1, radius=num_cores + 2,

@@ -1,8 +1,10 @@
 from typing import List
 
-from . import Process, SimulatedScheduler
-from .rr_full import process_states
-from .rr_full import calc_n_neurons
+from nengo_os.print_control import d_print
+
+from nengo_os import Process, SimulatedScheduler
+from nengo_os.rr_full import process_states
+from nengo_os.rr_full import calc_n_neurons
 
 
 class NemoNengoInterface:
@@ -75,9 +77,11 @@ class NemoNengoInterface:
         self.process_list.append(p)
 
     def init_model(self):
+        print("Compiling Model")
         self.primary_scheduler = SimulatedScheduler(self.process_list, self.sc_mode, rr_time_slice=self.rr_time_slice,
                                                     num_cores=self.cores_in_sim,use_dl=self.use_neng_del)
         self.model_init = True
+        print("Model compile complete")
 
     def run_sim_time(self, n_ticks=1):
         """
@@ -139,17 +143,25 @@ class NemoNengoInterface:
 
 
         d =  [pd['model_id'] for pd in data]
-        print ("Running Proc Value: " + str(d))
+        d_print ("Running Proc Value: " + str(d))
         return d
 
     def waiting_proc_precompute(self) -> List[int]:
         data = self.precompute_wait_q
         d = [pd['model_id'] for pd in data]
-        print("Waiting Proc Value: " + str(d))
+        d_print("Waiting Proc Value: " + str(d))
         return d
 
     def increment_pc(self):
         self.precompute_time += 1
+
+    def running_proc_precompute_procs(self) -> List[Process]:
+        return self.primary_scheduler.queue_nodes.run_q
+
+    def waiting_proc_precompute_procs(self) -> List[Process]:
+        print("RESULT WAIT PROC LIST")
+        return self.primary_scheduler.queue_nodes.wait_q
+
 
 
 

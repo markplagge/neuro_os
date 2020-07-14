@@ -1,2 +1,0 @@
-VirtualProcess
-nengo_os
