@@ -42,10 +42,12 @@ class NemoNengoInterface:
         """
         import json
         mdx = json.load(open(js_file, 'r'))
+
         models = mdx['models']
         mod_dat = {}
         for m in models:
             mid = m['id']
+
             needed_cores = m['needed_cores']
             needed_time = m['requested_time']
             if needed_time < 0:
@@ -54,7 +56,7 @@ class NemoNengoInterface:
         for task in mdx['scheduler_inputs']:
             mid = task['model_id']
             needed_time = mod_dat[mid]['needed_time']
-            needed_cores = mod_dat[mid]['requested_time']
+            needed_cores = mod_dat[mid]['needed_cores']
             scheduled_start_time = task['start_time']
             p = Process(n_cores=needed_cores, time_needed=needed_time, model_id=mid, start_time=scheduled_start_time)
             self.process_list.append(p)
@@ -124,7 +126,9 @@ class NemoNengoInterface:
 
     @property
     def precompute_run_q(self):
-        return self.precompute_q("run_q")
+        pq = self.precompute_q("run_q")
+
+        return pq
 
     @property
     def precompute_wait_q(self):
@@ -132,11 +136,17 @@ class NemoNengoInterface:
 
     def running_proc_precompute(self) -> List[int]:
         data = self.precompute_run_q
-        return [pd['model_id'] for pd in data if pd['state'] == "RUNNING"]
+
+
+        d =  [pd['model_id'] for pd in data]
+        print ("Running Proc Value: " + str(d))
+        return d
 
     def waiting_proc_precompute(self) -> List[int]:
         data = self.precompute_wait_q
-        return [pd['model_id'] for pd in data]
+        d = [pd['model_id'] for pd in data]
+        print("Waiting Proc Value: " + str(d))
+        return d
 
     def increment_pc(self):
         self.precompute_time += 1

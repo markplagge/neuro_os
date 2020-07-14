@@ -4,3 +4,4 @@ cmake-build-debug/
 scripts/VirtualProcess/__pycache__/
 scripts/build/
 scripts/.ipynb_checkpoints/
+scripts/nengo_os/__pycache__/

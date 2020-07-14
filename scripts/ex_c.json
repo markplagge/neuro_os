@@ -21,10 +21,10 @@
   "models": [
     {
       "id": 0,
-      "needed_cores": 0,
+      "needed_cores": 4048,
       "model_file_path": "/Users/plaggm/dev/nemo-codes/config/models/cifar_100_model.json",
       "spike_file_path": "/Users/plaggm/dev/nemo-codes/config/models/cifar_100_spike.json",
-      "requested_time": 1024,
+      "requested_time": 2,
       "benchmark_model_name": "NONE"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "id": 2,
-      "needed_cores": 0,
+      "needed_cores": 4048,
       "model_file_path": "/Users/plaggm/dev/nemo-codes/config/models/sar_model.json",
       "spike_file_path": "/Users/plaggm/dev/nemo-codes/config/models/sar_model_spike.json",
       "requested_time": 1024,
