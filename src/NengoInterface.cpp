@@ -4,6 +4,9 @@
 
 #include "NengoInterface.h"
 #include "SimProcess.h"
+#include <pybind11/stl.h>
+
+#include <utility>
 namespace neuro_os {
 	NengoInterface::NengoInterface(bool use_dl, int cores_in_sim, int mode, int rr_time, std::string json_path, bool debug_print) {
 		sim_mod = py::module::import("nengo_os");
@@ -70,17 +73,17 @@ namespace neuro_os {
 
 
 
-	sim_proc::SimProcess create_proc_from_pyobj(py::object python_process){
+	sim_proc::SimProcess create_proc_from_pyobj(py::dict python_process){
 #define PV(S) proc_data[S].cast<int>()
-		py::dict proc_data = python_process.attr("to_dict")();
+		auto proc_data = std::move(python_process);
 		int state = sim_proc::PY_PROC_STATE::GET_STATE_FROM_NAME(proc_data["state"].cast<std::string>());
-		return sim_proc::SimProcess(PV("MODEL_ID"),PV("needed_cores"),PV("needed_time"),state);
+		return {PV("model_id"),PV("needed_cores"),PV("needed_time"),state};
 #undef PV
 	}
-	std::vector<sim_proc::SimProcess> convert_py_list(py::list py_list) {
+	std::vector<sim_proc::SimProcess> convert_py_list(const py::object& py_list) {
 		std::vector<sim_proc::SimProcess> proc_list;
 		for (auto & py_proc : py_list){
-			auto sim_proc = create_proc_from_pyobj(py_proc.cast<py::object>());
+			auto sim_proc = create_proc_from_pyobj(py_proc.cast<py::dict>());
 			proc_list.push_back(sim_proc);
 		}
 		return proc_list;

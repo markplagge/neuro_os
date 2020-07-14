@@ -155,12 +155,13 @@ class NemoNengoInterface:
     def increment_pc(self):
         self.precompute_time += 1
 
-    def running_proc_precompute_procs(self) -> List[Process]:
-        return self.primary_scheduler.queue_nodes.run_q
+    def running_proc_precompute_procs(self) -> List[dict]:
+        return [p.to_dict() for p in  self.primary_scheduler.queue_nodes.run_q]
 
-    def waiting_proc_precompute_procs(self) -> List[Process]:
-        print("RESULT WAIT PROC LIST")
+    def waiting_proc_precompute_procs(self) -> List[dict]:
+        d = [p.to_dict() for p in self.primary_scheduler.queue_nodes.wait_q]
         return self.primary_scheduler.queue_nodes.wait_q
+        return d
 
 
 
