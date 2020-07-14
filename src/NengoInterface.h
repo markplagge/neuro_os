@@ -17,7 +17,11 @@ namespace neuro_os {
 		py::scoped_interpreter guard{};
 		py::module sim_mod = py::module::import("nengo_os");
 		py::object nengo_os_iface;
-
+		NengoInterface(){
+			py::exec(R"(
+print('PreNOS Init'
+)");
+		}
 		NengoInterface(bool use_dl, int cores_in_sim, int mode, int rr_time, std::string json_path, bool debug_print = false);
 	};
 
