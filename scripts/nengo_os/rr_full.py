@@ -342,11 +342,13 @@ class QueueNode:
                 if len(self.run_q) > 0:
                     ttr = self.run_q[0].needed_time
                     pstate = self.run_q[0].current_state
+
                 # d_print(f"PMAN: {self.output_last_active} |"
                 #       f"RUNSZ:{self.get_running_proc_core_usage()}"
                 #       f"TTR:{ttr} | STATE:{pstate}")
                 # self.added_element = 0
             self.output_message(t)
+
 
             
         return om[0]

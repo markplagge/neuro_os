@@ -5,7 +5,9 @@
 #ifndef NEUROOS_SRC_NENGOINTERFACE_H_
 #define NEUROOS_SRC_NENGOINTERFACE_H_
 #include "SimProcess.h"
-#include <include/pybind11/embed.h>
+//#include <pybind11/embed.h>
+#include "../extern/pybind11/include/pybind11/embed.h"
+
 namespace py = pybind11;
 namespace neuro_os {
 	/**

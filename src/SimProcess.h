@@ -33,7 +33,7 @@ namespace neuro_os {
 			int PID;
 			int model_id;
 			int needed_cores;
-			int needed_run_time;
+			double needed_run_time;
 			double scheduled_start_time;
 			int total_wait_time;
 			int total_run_time;

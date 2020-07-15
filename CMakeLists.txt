@@ -18,7 +18,7 @@ set(NEURO_OS_LIB
         src/NengoInterface.cpp
         src/NengoInterface.h )
 
-add_library(neuro_os STATIC ${NEURO_OS_LIB} )
+add_library(neuro_os  ${NEURO_OS_LIB} )
 add_executable(neuro_os_bin main.cpp)
 
 add_subdirectory(extern/pybind11)

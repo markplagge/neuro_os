@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 from typing import List
 
 from nengo_os.print_control import d_print
@@ -35,6 +37,7 @@ class NemoNengoInterface:
 
         self.model_init = False
 
+        self.scheduler_stat_file = Path("scheduler_data.json")
 
     def init_process_list_from_json(self, js_file):
         """
@@ -43,6 +46,7 @@ class NemoNengoInterface:
         :return: NONE
         """
         import json
+        print("LOADING " + js_file)
         mdx = json.load(open(js_file, 'r'))
 
         models = mdx['models']
@@ -78,6 +82,7 @@ class NemoNengoInterface:
 
     def init_model(self):
         print("Compiling Model")
+        assert(self.process_list is not None)
         self.primary_scheduler = SimulatedScheduler(self.process_list, self.sc_mode, rr_time_slice=self.rr_time_slice,
                                                     num_cores=self.cores_in_sim,use_dl=self.use_neng_del)
         self.model_init = True
@@ -122,11 +127,32 @@ class NemoNengoInterface:
         """
         return [p.model_id for p in self.primary_scheduler.queue_nodes.wait_q]
 
-
     def generate_full_results(self, end_time = 5000):
         self.run_until_current_time(end_time)
+        queue_stat_file = self.scheduler_stat_file.open("w")
+        stats = self.primary_scheduler.queue_nodes.dict_stats[float(end_time)]
+        json.dump(stats,queue_stat_file)
+        print(f"Saved scheduler stats to {queue_stat_file.name}")
+
+
     def precompute_q(self, type):
-        return self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type]
+
+        pq =  self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type]
+        rq = []
+        if type == "run_q":
+            for p in pq:
+                if p['state'] != 2:
+                    rq.append(p)
+        elif type == "done_q":
+            for p in pq:
+                if p['state'] == 2:
+                    rq.append(p)
+        else:
+            rq = pq
+
+        #if p['state'] == 2
+        #rq = [p  for p in pq if p['state'] != 2 ]
+        return rq
 
     @property
     def precompute_run_q(self):
@@ -160,9 +186,10 @@ class NemoNengoInterface:
 
     def waiting_proc_precompute_procs(self) -> List[dict]:
         d = [p.to_dict() for p in self.primary_scheduler.queue_nodes.wait_q]
-        return self.primary_scheduler.queue_nodes.wait_q
         return d
 
+    def current_precompute_time(self):
+        return self.primary_scheduler
 
 
 
