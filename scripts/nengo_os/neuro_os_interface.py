@@ -136,8 +136,12 @@ class NemoNengoInterface:
 
 
     def precompute_q(self, type):
-
-        pq =  self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type]
+        try:
+            pq =  self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type]
+        except KeyError:
+            print("KEY " + str(self.precompute_time) + "NIC, attempting recovery")
+            self.run_sim_time(50)
+            pq = self.primary_scheduler.queue_nodes.dict_stats[float(self.precompute_time)][type]
         rq = []
         if type == "run_q":
             for p in pq:
@@ -190,6 +194,8 @@ class NemoNengoInterface:
 
     def current_precompute_time(self):
         return self.primary_scheduler
+
+
 
 
 
