@@ -1,5 +1,7 @@
 import json
 import math
+import warnings
+from enum import IntFlag
 
 import nengo
 import nengo_spa as spa
@@ -13,6 +15,12 @@ from .print_control import d_print
 
 scheduler_states = ['ADD', 'FULL']
 process_states = ['WAITING', 'RUNNING', 'DONE', "PRE_WAIT"]
+class PROC_STATE(IntFlag):
+    WAITING = 1
+    RUNNING = 2
+    COMPLETE = 4
+    PRE_WAIT = 8
+    NO_OP = 0
 
 dimensions = 16
 
@@ -29,27 +37,30 @@ class Process:
             self.needed_cores = n_cores
 
         if time_needed is None:
-            self.needed_time = random.randint(1, max_time)
+            self._needed_time = random.randint(1, max_time)
         else:
-            self.needed_time = time_needed
+            self._needed_time = time_needed
 
         self.start_time = start_time
         if start_time == 0:
-            self.current_state = process_states[0]
+            self.set_current_state( process_states[0] )
         else:
-            self.current_state = process_states[3]
+            self.set_current_state(process_states[3])
 
         self.wait_time = 0
         self.run_time = 0
 
         self.current_run_time = 0
         self.model_id = model_id
-
+        self.pre_wait_time = 0
 
     @property
+    def needed_time(self):
+        return self._needed_time
+
     def current_state(self):
         if self._current_state == process_states[3]:  # pre_wait
-            if self.wait_time >= self.start_time:
+            if self.pre_wait_time >= self.start_time:
                 self._current_state = process_states[0]
                 # return process_states[0]
         elif self._current_state == process_states[0]:  # wait:
@@ -58,25 +69,34 @@ class Process:
 
         return self._current_state
 
-    @current_state.setter
-    def current_state(self, value):
-        self._current_state = value
+
+    def set_current_state(self, value):
+        in_sys = any(value == valid_states for valid_states in process_states)
+        if in_sys:
+            if value == "RUNNING" and self.run_time >= self.needed_time:
+                self._current_state = "DONE"
+                warnings.warn("Process got a set state to running when already done")
+            self._current_state = value
+        else:
+            raise Exception(f'Got {value} for process state')
 
     def tick(self):
 
-        if self.current_state == process_states[0]:
+        if self.current_state() == process_states[0]:
             self.wait_time += 1
-        elif self.current_state == process_states[1]:
+        elif self.current_state() == process_states[1]:
             self.run_time += 1
             self.current_run_time += 1
+        elif self.current_state() == process_states[3]:
+            self.pre_wait_time += 1
 
         if self.run_time >= self.needed_time:
-            self.current_state = process_states[2]
+            self.set_current_state( process_states[2])
             d_print(f"Process completed with rt:{self.run_time}, wt:{self.wait_time}")
 
     def interrupt(self):
-        if self.current_state != process_states[3]:
-            self.current_state = process_states[0]
+        if self.current_state() != process_states[3]:
+            self.set_current_state( process_states[0])
             d_print(f"Proc {self.model_id} interrupt with {self.current_run_time} rt")
             self.current_run_time = 0
 
@@ -87,7 +107,7 @@ class Process:
             'needed_time': int(self.needed_time),
             'start_time': int(self.start_time),
             'current_run_time': int(self.current_run_time),
-            'state': self.current_state,
+            'state': self.current_state(),
             'model_id': int(self.model_id),
             "needed_cores": int(self.needed_cores)
         }
@@ -245,7 +265,7 @@ class QueueNode:
 
     def start_next_proc(self, t):
         next_proc = self.wait_q.pop(0)
-        next_proc.current_state = "RUNNING"
+        next_proc.set_current_state ("RUNNING")
         self.run_q.append(next_proc)
 
     def start_proc(self, t, x):
@@ -265,9 +285,12 @@ class QueueNode:
     def process_update(self, t):
         epoc_diff = self.epoch_check(t)
         if epoc_diff > 0:
-            for i in range(0, epoc_diff):
-                [p.tick() for p in self.wait_q]
-                [p.tick() for p in self.run_q]
+            for _ in range(epoc_diff):
+                for p in self.wait_q:
+                    p.tick()
+                for p in self.run_q:
+                    p.tick()
+            self.last_active = int(t)
 
     def get_running_proc_core_usage(self):
         return sum(
@@ -355,29 +378,28 @@ class QueueNode:
 
     def input_interrupt(self, t, x):
         output_message = [-1]
-        if x[0] >= 1.0:
-            if self.check_inter(t) > 0 and t > 2:
-                d_print(f"PMAN INTERUPT x:{x} ")
-                ## Make spiking
-                num_done = 0
-                wait_append = []
-                run_append = []
-                for i in range(len(self.run_q)):
-                    p = self.run_q[i]
-                    crt = p.current_run_time
-                    ts = self.time_slice
-                    if (crt >= ts):
-                        p.interrupt()
-                        wait_append.append(p)
-                    else:
-                        run_append.append(p)
-                for p in wait_append:
-                    self.wait_q.append(p)
+        if x[0] >= 1.0 and self.check_inter(t) > 0 and t > 2:
+            d_print(f"PMAN INTERUPT x:{x} ")
+            ## Make spiking
+            num_done = 0
+            wait_append = []
+            run_append = []
+            ts = self.time_slice
+            for item in self.run_q:
+                p = item
+                crt = p.current_run_time
+                if (crt >= ts):
+                    p.interrupt()
+                    wait_append.append(p)
+                else:
+                    run_append.append(p)
+            for p in wait_append:
+                self.wait_q.append(p)
 
-                self.run_q = run_append
+            self.run_q = run_append
 
 
-                output_message[0] = num_done * -1
+            output_message[0] = num_done * -1
         return output_message
 
     def compile_stats(self, t):
@@ -416,6 +438,12 @@ class QueueNode:
         self.dict_stats[float(t)] = stat_t
 
 
+class QueueNodeEnh(QueueNode):
+    def input_interrupt(self, t, x):
+        if self.time_slice <= 0:
+            return []
+        else:
+            return super().input_interrupt(t,x)
 
 def FCFS_sys(num_cores=4096, calc_n_neurons=512, sim_q_input=None):
     fcfs = nengo.Network()
@@ -730,3 +758,59 @@ def save_simulated_scheduler_stats(scheduler, filename="./scheduler_stats.json")
 # s = demo()
 # data = s.queue_nodes.get_stats()
 # save_simulated_scheduler_stats(s, "../test_stats.json")
+## ENHANCED
+class RRProcessStatus(Process):
+    process_began_run = -1
+    tick_time = 0
+
+    def set_current_state(self, value):
+        if (
+            value == "RUNNING"
+            and self._current_state == "WAITING"
+            and self.process_began_run == -1
+        ):
+            self.process_began_run = self.tick_time
+        #self._current_state = value
+        super(RRProcessStatus, self).set_current_state(value)
+
+    def tick(self):
+        self.tick_time += 1
+        super().tick()
+
+    def start(self):
+        self.set_current_state("RUNNING")
+
+
+
+    def __eq__(self, other):
+        return self.model_id == other.model_id
+
+    def __str__(self):
+        d = self.to_dict()
+        msg = ""
+        for k,v in d.items():
+            msg += f"{k}:{v}, "
+        msg +=f"tick_time:{self.tick_time}, pwt:{self.pre_wait_time}\n"
+        return msg
+
+
+
+class SimpleProc:
+    def __init__(self,name, id,arrival,start_NU,compute_time,cores):
+        self.name = name
+        self.id = id
+        self.arrival = arrival
+        self.compute = compute_time
+        self.cores = cores
+        self.current_time = 0
+        self.state = PROC_STATE.WAITING if self.arrival == 0 else PROC_STATE.PRE_WAIT
+        self.proc = RRProcessStatus(n_cores = self.cores, time_needed=self.compute, model_id = id,start_time=self.arrival)
+        assert (self.proc.needed_time == self.compute)
+        assert(arrival == start_NU)
+
+    def __str__(self):
+        m = f"P.Name:{self.name} P.id:{self.id} P.arrival_time:{self.arrival} P.compute{self.compute} P.cores:{self.cores}" \
+            f"P.c_time:{self.current_time} P.state:{self.state}"
+        return m
+
+#PREDEFINED PROC GENERATION

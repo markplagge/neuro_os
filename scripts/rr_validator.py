@@ -1,44 +1,93 @@
-#%%
-from enum import IntFlag
-
-
-class PROC_STATE(IntFlag):
-    WAITING = 1
-    RUNNING = 2
-    COMPLETE = 4
-    PRE_WAIT = 8
-    NO_OP = 0
-
-class SimpleProc:
-    def __init__(self,name, id,arrival,start,compute,cores):
-        self.name = name
-        self.id = id
-        self.arrival = arrival
-
-        self.compute = compute
-        self.cores = cores
-        self.current_time = 0
-        if self.arrival == 0:
-            self.state = PROC_STATE.WAITING
-        else:
-            self.state = PROC_STATE.PRE_WAIT
-procs = []
-procs.append(SimpleProc("Cifar",1,0,0,4450,4038))
-procs.append(SimpleProc("SAR",2,10,4450,1125,3038))
-procs.append(SimpleProc("Tonic",3,100,5575,8,2))
-procs.append(SimpleProc("Saturation",4,120,5583,81,1439))
-procs.append(SimpleProc("Cifar",5,1000,5664,5325,4038))
-procs.append(SimpleProc("SAR",6,1010,10989,1876,3038))
-procs.append(SimpleProc("Tonic",7,1500,12865,7,2))
-procs.append(SimpleProc("Cifar",8,2000,12872,5649,4038))
-procs.append(SimpleProc("SAR",9,2010,18521,1196,3038))
-procs.append(SimpleProc("Tonic",10,2100,19717,8,2))
-procs.append(SimpleProc("Saturation",11,3000,19725,54,1091))
-
+# %%
 import nengo_os
-iface = nengo_os.NemoNengoInterface(True,mode=1,rr_time_slice=50)
-for p in procs:
-    iface.add_process(p.id,p.cores,p.compute,p.arrival)
-#iface.run_sim_time(5000)
-iface.init_model()
-iface.generate_full_results()
+from nengo_os import  ConventScheduler, NemoNengoInterface
+
+
+from nengo_os import SimpleProc, NemoNengoInterfaceBase
+
+# @functools.total_ordering
+# class CompareableRRProc(nengo_os.Process):
+#
+#     def __eq__(self, other):
+#         if self.status !=
+#         if self.status is other.status:
+#             return True
+#
+from nengo_os.rr_full import SimpleProc
+
+
+def nengo_sim_init(procs):
+    iface = nengo_os.NemoNengoInterfaceBase(True, mode=1, rr_time_slice=50)
+    for p in procs:
+        iface.add_process(p.id, p.cores, p.compute, p.arrival)
+    return iface
+
+
+def nengo_sim_run(iface, end_time):
+    iface.init_model()
+    iface.generate_full_results(end_time)
+    return iface
+
+
+def interleave_procs():
+    procs = [SimpleProc("TEST1", 0, 0, 0, 10, 50),
+             SimpleProc("TEST2", 0, 2, 2, 10, 50),
+             SimpleProc("TEST3", 0, 5, 5, 10, 50)]
+    return procs
+
+
+def interrupt_procs():
+    return [SimpleProc("TEST1", 0, 0, 0, 10, 4000),
+            SimpleProc("TEST2", 1, 2, 2, 10, 4000)]
+
+
+def schedule(processes, mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True):
+    return ConventScheduler(processes, mode, total_cores, time_slice, multiplexing)
+
+
+import pytest
+import tqdm
+
+
+def test_scheduler(pl=None):
+    proc_list = interleave_procs() if pl is None else pl
+    sch = schedule(proc_list, mode="RR")
+    proc_0_run_times = []
+    proc_1_run_times = []
+    proc_1_pre_wait_times = []
+    proc_1_wait_times = []
+    assert (sch.current_time == 0)
+    for i in range(1, 36):
+        sch.scheduler_run_tick()
+        assert (sch.current_time == i)
+        proc_0_run_times.append(sch.queue.run_q[0].run_time)
+        if len(sch.queue.run_q) >= 2:
+            proc_1_run_times.append(sch.queue.run_q[1].run_time)
+        if i < 2:
+            assert (len(sch.queue.run_q) == 1)
+
+        elif i < 5:
+            assert (sch.queue.run_q[1].pre_wait_time == 2)
+            assert (len(sch.queue.run_q) == 2)
+
+        elif i == 50:
+            for p in sch.queue.run_q:
+                if p.current_state() != "DONE":
+                    assert (p.current_state() == "DONE")
+
+        if pl is None and len(sch.queue.run_q) > 0:
+            test_time = 10
+            assert (sch.queue.run_q[0].needed_time == test_time)
+
+    return sch
+
+
+if __name__ == '__main__':
+    test_scheduler()
+    ips = test_scheduler(interrupt_procs())
+    print(f"IPS RES: \n {ips}")
+    proc_list = NemoNengoInterface.paper_procs()
+    sch = schedule(NemoNengoInterface.paper_procs(), "RR")
+
+    for i in tqdm.tqdm(range(4000)):
+        sch.scheduler_run_tick()

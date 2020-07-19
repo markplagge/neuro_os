@@ -1,16 +1,18 @@
 import json
+from enum import IntFlag
 from pathlib import Path
 from typing import List
 
-from nengo_os.print_control import d_print
+import nengo_os
+from . import ConventScheduler
+from .print_control import d_print
 
 from nengo_os import Process, SimulatedScheduler
-from nengo_os.rr_full import process_states
-from nengo_os.rr_full import calc_n_neurons
+from .rr_full import process_states, SimpleProc, RRProcessStatus
+from .rr_full import calc_n_neurons
 
 
-class NemoNengoInterface:
-
+class NemoNengoInterfaceBase:
     def __init__(self, use_nengo_dl: bool =False, cores_in_sim: int = 4096, mode: int = 0, rr_time_slice: int = 4096):
         """
         NemoNengoInterface: Main interface between Nemo code and NemoOS-Python interface
@@ -31,12 +33,9 @@ class NemoNengoInterface:
         self.cores_in_sim = cores_in_sim
         self.sc_mode = "FCFS" if mode == 0 else "RR"
         self.rr_time_slice = rr_time_slice
-
         self.nemo_time = 0
         self.precompute_time = 1
-
         self.model_init = False
-
         self.scheduler_stat_file = Path("scheduler_data.json")
 
     def init_process_list_from_json(self, js_file):
@@ -83,6 +82,7 @@ class NemoNengoInterface:
     def init_model(self):
         print("Compiling Model")
         assert(self.process_list is not None)
+
         self.primary_scheduler = SimulatedScheduler(self.process_list, self.sc_mode, rr_time_slice=self.rr_time_slice,
                                                     num_cores=self.cores_in_sim,use_dl=self.use_neng_del)
         self.model_init = True
@@ -130,7 +130,7 @@ class NemoNengoInterface:
     def generate_full_results(self, end_time = 5000):
         self.run_until_current_time(end_time)
         queue_stat_file = self.scheduler_stat_file.open("w")
-        stats = self.primary_scheduler.queue_nodes.dict_stats[float(end_time)]
+        stats = self.primary_scheduler.queue_nodes.dict_stats
         json.dump(stats,queue_stat_file)
         print(f"Saved scheduler stats to {queue_stat_file.name}")
 
@@ -198,9 +198,91 @@ class NemoNengoInterface:
 
 
 
+class NemoNengoInterface(NemoNengoInterfaceBase):
+    def __init__(self,use_own_procs=True, multiplexing=True,mode = None,total_cores=4096,time_slice=50,
+                 use_conventional=True,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.multiplexing = multiplexing
+        if mode is None:
+
+            if self.sc_mode == "FCFS":
+                mode = "FCFS"
+            elif self.sc_mode == "RR":
+                mode = "RR"
+            else:
+                raise Exception(f"Got None in NNI mode, and an invalid mode in base class {self.sc_mode} ")
+        elif mode == "FCFS":
+            time_slice = -1
+        elif mode == "RR" and time_slice <1:
+            raise Exception (f"Got Round Robin mode but a time_slice < 1: {time_slice} ")
+
+
+        self.total_cores = total_cores
+        self.current_time = 0
+        self.time_slice = time_slice
+
+        if use_own_procs:
+            self.process_list = [p.proc for p in self.paper_procs()]
+        else:
+            self.process_list = []
+        self.use_conventional =  use_conventional
+
+    def init_process_list_from_json(self, js_file):
+
+            """
+            Using the Nemo config file, populate jobs/processes
+            :param js_file: Path to the nemo configuration json file
+            :return: NONE
+            """
+            import json
+            print("LOADING " + js_file)
+            mdx = json.load(open(js_file, 'r'))
+
+            models = mdx['models']
+            mod_dat = {}
+            for m in models:
+                mid = m['id']
+
+                needed_cores = m['needed_cores']
+                needed_time = m['requested_time']
+                if needed_time < 0:
+                    needed_time = 9223372036854775800
+                mod_dat[mid] = {'needed_cores': needed_cores, 'needed_time': needed_time}
+            for task in mdx['scheduler_inputs']:
+                mid = task['model_id']
+                needed_time = mod_dat[mid]['needed_time']
+                needed_cores = mod_dat[mid]['needed_cores']
+                scheduled_start_time = task['start_time']
+                p = RRProcessStatus(n_cores=needed_cores, time_needed=needed_time, model_id=mid,
+                            start_time=scheduled_start_time)
+                self.process_list.append(p)
+
+
+    @staticmethod
+    def paper_procs():
+        return [       # name   id arrival1,+2,      comp_t, needed_cores
+            SimpleProc("Cifar",      0, 0,0,         4450, 4038), #test single process
+            SimpleProc("SAR",        1, 4450,4450,   1125, 3038),
+            SimpleProc("Tonic",      2, 5575,5575,   8,    2),
+            SimpleProc("Saturation", 3, 5575,5575,   81,   1439),
+            SimpleProc("Cifar",      4, 5664,5664,   5325, 4038),
+            SimpleProc("SAR",        5, 10989,10989, 1876, 3038),
+            SimpleProc("Tonic",      6, 12865,12865, 7,    2),
+            SimpleProc("Cifar",      7, 12872,12872, 5649, 4038),
+            SimpleProc("SAR",        8, 18521,18521, 1196, 3038),
+            SimpleProc("Tonic",      9, 19717,19717, 8, 2),
+        ]
+
+
+class NemoNengoInterfaceConventional(NemoNengoInterface):
+    def __init__(self,*args,**kwargs):
+        super(NemoNengoInterfaceConventional, self).__init__(*args,**kwargs)
+        self.primary_scheduler = ConventScheduler.ConventScheduler(self.sc_mode, self.total_cores, self.time_slice, self.multiplexing)
+
+
 
 def test_pre():
-    iface = NemoNengoInterface(rr_time_slice=5,use_nengo_dl=True)
+    iface = NemoNengoInterfaceBase(rr_time_slice=5, use_nengo_dl=True)
     iface.init_model()
     iface.generate_full_results(end_time=25)
     run_procs_t = {}
