@@ -40,7 +40,7 @@ int main(){
 
 
     std::string js_test_path("/Users/plaggm/dev/nemo-codes/src/libs/neuro_os/scripts/ex_c.json");
-    neuro_os::NengoInterface iface(false, 4096, 1, 1024,js_test_path,true);
+    neuro_os::NengoInterface iface(false, 4096, 1, 1024, js_test_path, true, true);
 	q.enqueue(p);
 	iface.nengo_os_iface.attr("init_process_list_from_json")(js_test_path);
 

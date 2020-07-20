@@ -24,7 +24,9 @@ namespace neuro_os {
 print('PreNOS Init'
 )");
 		}
-		NengoInterface(bool use_dl, int cores_in_sim, int mode, int rr_time, std::string json_path, bool debug_print = false);
+
+		NengoInterface(bool use_dl, int cores_in_sim, int mode, int rr_time,
+					   std::string json_path, bool debug_print, bool is_nengo = true);
 	};
 
 	struct NengoSchedulerStatus {

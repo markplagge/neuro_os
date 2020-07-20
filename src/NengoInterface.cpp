@@ -8,17 +8,20 @@
 
 #include <utility>
 namespace neuro_os {
-	NengoInterface::NengoInterface(bool use_dl, int cores_in_sim, int mode, int rr_time, std::string json_path, bool debug_print) {
-		sim_mod = py::module::import("nengo_os");
+	NengoInterface::NengoInterface(bool use_dl, int cores_in_sim, int mode, int rr_time, std::string json_path, bool debug_print, bool is_nengo) {
+		if (is_nengo) {
+			sim_mod = py::module::import("nengo_os");
 
-		this->nengo_os_iface = sim_mod.attr("NemoNengoInterface")(use_dl, cores_in_sim, mode, rr_time);
-		this->nengo_os_iface.attr("init_process_list_from_json")(json_path);
-		this->nengo_os_iface.attr("init_model")();
-		this->sim_mod.attr("debug_print");
-		if (debug_print) {
-			this->sim_mod.attr("debug_print")=true;
-		}else{
-			this->sim_mod.attr("debug_print")=false;
+			this->nengo_os_iface = sim_mod.attr("NemoNengoInterface")(use_dl, cores_in_sim, mode, rr_time);
+			this->nengo_os_iface.attr("init_process_list_from_json")(json_path);
+			this->nengo_os_iface.attr("init_model")();
+			this->sim_mod.attr("debug_print");
+			if (debug_print) {
+				this->sim_mod.attr("debug_print") = true;
+			}
+			else {
+				this->sim_mod.attr("debug_print") = false;
+			}
 		}
 	}
 
@@ -66,6 +69,7 @@ namespace neuro_os {
 	neuro_os::NengoSchedulerStatus::NengoSchedulerStatus(int i,
 														 std::vector<int, std::allocator<int>> vector,
 														 std::vector<int, std::allocator<int>> vector_1) {
+		epoch = 0;
 	}
 
 

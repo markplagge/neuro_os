@@ -1,10 +1,11 @@
-from .rr_full import QueueNodeEnh
+from .rr_full import QueueNodeEnh, SimpleProc
 from .neuro_os_interface import NemoNengoInterface
 
 try:
     from numba import jit
 except:
     print("NUMBA not found not using JIT")
+
 
     def jit(func):
         def wrapper_do_twice(*args, **kwargs):
@@ -14,8 +15,7 @@ except:
 
 
 class ConventScheduler:
-    def __init__(self, simple_proc_list=None, mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True,
-                 proc_js_file=None):
+    def __init__(self, simple_proc_list=None, mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True, proc_js_file=None):
         self.multiplexing = multiplexing
         if mode == "FCFS":
             time_slice = -1
@@ -23,20 +23,30 @@ class ConventScheduler:
             iface = NemoNengoInterface(True)
             if proc_js_file is None:
                 print("Using paper task list")
-                big_p_list = iface.process_list
+                big_p_list = iface.paper_procs()
             else:
                 print(f"Loading procs from file: {proc_js_file}")
+                iface.init_process_list_from_json(proc_js_file)
                 big_p_list = iface.paper_procs()
         else:
             mm = "\n".join([str(pl) for pl in simple_proc_list])
             print(f"Using given proc list: {mm}`")
             big_p_list = [p.proc for p in simple_proc_list]
 
+        if(isinstance(big_p_list[0],SimpleProc)):
+            bpl = []
+            for p in big_p_list:
+                bpl.append(p.proc)
+            big_p_list = bpl
+
         self.queue = QueueNodeEnh(wait_q_ovr=big_p_list, time_slice=time_slice)
 
         self.total_cores = total_cores
         self.current_time = 0
         self.time_slice = time_slice
+        self.precompute_running_procs = []
+        self.precompute_waiting_procs = []
+        self.precompute_time = 0
 
     @property
     def waiting_procs(self):
@@ -96,7 +106,7 @@ class ConventScheduler:
         if self.is_process_waiting:
             if self.multiplexing:
                 wps = self.waiting_proc_size
-                if wps <= self.available_cores and self.waiting_proc_size > 0:
+                if wps <= self.available_cores and wps > 0:
                     return True
             elif self.running_proc_size == 0:
                 return True
@@ -132,6 +142,27 @@ class ConventScheduler:
 
         self.interrupt_all_available_procs()
         return self.current_time
+
+    def precompute_scheduler(self, time):
+        for _ in range(time + 1):
+            self.precompute_waiting_procs.append(self.waiting_proc_list)
+            self.precompute_running_procs.append(self.running_proc_list)
+            self.scheduler_run_tick()
+
+    def increment_pc(self):
+        self.precompute_time += 1
+
+    def get_precompute_lists_at_time(self, time):
+        if time < 0:
+            time = self.precompute_time
+
+        return self.precompute_waiting_procs[time], self.precompute_running_procs[time]
+
+    def get_precompute_wait_at_time(self, time=-1):
+        return self.get_precompute_wait_at_time(time)[0]
+
+    def get_precompute_run_at_time(self, time=-1):
+        return self.get_precompute_run_at_time(time)[1]
 
     def __str__(self):
         rp = "\n".join([str(p) for p in self.queue.run_q])
