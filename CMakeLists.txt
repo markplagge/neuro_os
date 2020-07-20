@@ -16,7 +16,7 @@ set(NEURO_OS_LIB
         src/SimProcessQueue.cpp
         src/SimProcessQueue.h
         src/NengoInterface.cpp
-        src/NengoInterface.h )
+        src/NengoInterface.h src/NemoSchedulerInterface.cpp src/NemoSchedulerInterface.h)
 
 add_library(neuro_os  ${NEURO_OS_LIB} )
 add_executable(neuro_os_bin main.cpp)
