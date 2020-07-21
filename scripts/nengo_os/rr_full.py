@@ -74,11 +74,13 @@ class Process:
         in_sys = any(value == valid_states for valid_states in process_states)
         if in_sys:
             if value == "RUNNING" and self.run_time >= self.needed_time:
-                self._current_state = "DONE"
+                self._current_state = process_states[2]
                 warnings.warn("Process got a set state to running when already done")
             self._current_state = value
         else:
             raise Exception(f'Got {value} for process state')
+        if value == "PRE_WAIT":
+            warnings.warn("GOT PRE_WAIT SET! ")
 
     def tick(self):
 
@@ -95,7 +97,7 @@ class Process:
             d_print(f"Process completed with rt:{self.run_time}, wt:{self.wait_time}")
 
     def interrupt(self):
-        if self.current_state() != process_states[3]:
+        if self.current_state() != process_states[3] and self.current_state() != process_states[1]:
             self.set_current_state( process_states[0])
             d_print(f"Proc {self.model_id} interrupt with {self.current_run_time} rt")
             self.current_run_time = 0
@@ -214,6 +216,13 @@ class QueueNode:
             self.last_inter = int(np.floor(t))
         return epoc_diff
 
+    @property
+    def is_done(self):
+        is_done = True
+        for p in self.run_q:
+            is_done = is_done and p.current_state() == "DONE"
+        return is_done
+
     def get_stats(self):
         return self.dict_stats
 
@@ -265,6 +274,16 @@ class QueueNode:
 
     def start_next_proc(self, t):
         next_proc = self.wait_q.pop(0)
+        if next_proc.current_state() != "WAITING":
+            pre_waits = [next_proc]
+            while True:
+                next_proc = self.wait_q.pop(0)
+                if next_proc.current_state() == "WAITING":
+                    break
+                pre_waits.append(next_proc)
+            for p in pre_waits:
+                self.wait_q.append(p)
+
         next_proc.set_current_state ("RUNNING")
         self.run_q.append(next_proc)
 
@@ -762,6 +781,8 @@ def save_simulated_scheduler_stats(scheduler, filename="./scheduler_stats.json")
 class RRProcessStatus(Process):
     process_began_run = -1
     tick_time = 0
+    state_callback = None
+    tick_callback = None
 
     def set_current_state(self, value):
         if (
@@ -771,15 +792,26 @@ class RRProcessStatus(Process):
         ):
             self.process_began_run = self.tick_time
         #self._current_state = value
+        if value == "INTERRUPT":
+            value = "WAITING"
+        if self.state_callback is not None and value != self._current_state:
+            self.state_callback(self._current_state, value, self)
         super(RRProcessStatus, self).set_current_state(value)
 
     def tick(self):
         self.tick_time += 1
         super().tick()
+        if self.tick_callback is not None:
+            self.tick_callback(self)
 
     def start(self):
         self.set_current_state("RUNNING")
 
+    def interrupt(self):
+        if super().current_state() == "RUNNING":
+            self.current_run_time = 0
+            self.set_current_state("INTERRUPT")
+            print(f"Proc {self.model_id} INTERRUPT at {self.tick_time}")
 
 
     def __eq__(self, other):

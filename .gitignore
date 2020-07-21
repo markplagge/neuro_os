@@ -7,3 +7,11 @@ scripts/.ipynb_checkpoints/
 scripts/nengo_os/__pycache__/
 
 scripts/neuro_os.egg-info/
+
+*.sql
+
+scripts/results/.DS_Store
+
+scripts/results/run_result.sqlite
+
+.DS_Store

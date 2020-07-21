@@ -82,6 +82,15 @@ def test_scheduler(pl=None):
     return sch
 
 
+"""
+Paper Proc Test with 50 procs
+Data schema:
+Table of Processes (model_id, etc....)
+Table of Process Events: (model_id, scheduler_time, event_type_id)
+table of Event Types: 
+event_id, name
+"""
+
 if __name__ == '__main__':
     test_scheduler()
     ips = test_scheduler(interrupt_procs())
@@ -89,5 +98,4 @@ if __name__ == '__main__':
     proc_list = NemoNengoInterface.paper_procs()
     sch = schedule(NemoNengoInterface.paper_procs(), "RR")
 
-    for i in tqdm.tqdm(range(4000)):
-        sch.scheduler_run_tick()
+    

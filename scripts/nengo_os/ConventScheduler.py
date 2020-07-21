@@ -15,25 +15,27 @@ except:
 
 
 class ConventScheduler:
-    def __init__(self, simple_proc_list=None, mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True, proc_js_file=None):
+    def __init__(self, simple_proc_list=None, mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True,
+                 proc_js_file=None):
         self.multiplexing = multiplexing
         if mode == "FCFS":
             time_slice = -1
         if simple_proc_list is None:
-            iface = NemoNengoInterface(True)
             if proc_js_file is None:
                 print("Using paper task list")
-                big_p_list = iface.paper_procs()
+                iface = NemoNengoInterface(True)
+                big_p_list = iface.paper_procs() if mode == "FCFS" else iface.rr_paper_procs()
             else:
                 print(f"Loading procs from file: {proc_js_file}")
+                iface = NemoNengoInterface(False)
                 iface.init_process_list_from_json(proc_js_file)
-                big_p_list = iface.paper_procs()
+                big_p_list = iface.process_list
         else:
             mm = "\n".join([str(pl) for pl in simple_proc_list])
             print(f"Using given proc list: {mm}`")
             big_p_list = [p.proc for p in simple_proc_list]
 
-        if(isinstance(big_p_list[0],SimpleProc)):
+        if (isinstance(big_p_list[0], SimpleProc)):
             bpl = []
             for p in big_p_list:
                 bpl.append(p.proc)
@@ -53,9 +55,8 @@ class ConventScheduler:
         waiting_procs = []
         next_waiting_proc_size = -1
         for proc in self.queue.wait_q:
-            if proc.current_state() == "WAITING":
-                if next_waiting_proc_size == -1:
-                    next_waiting_proc_size = proc.needed_cores
+            if proc.current_state() == "WAITING" and next_waiting_proc_size == -1:
+                next_waiting_proc_size = proc.needed_cores
             waiting_procs.append(proc.model_id)
         return next_waiting_proc_size, waiting_procs
 

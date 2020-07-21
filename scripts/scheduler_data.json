@@ -1,1 +1,2827 @@
-{"1.0": {"epoch": 0, "time": 1.0, "wait_q": [{"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 0, "needed_cores": 1787, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 1, "needed_cores": 3682, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 2, "needed_cores": 2441, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 3, "needed_cores": 3245, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 1.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 1.0}], "run_q": []}, "2.0": {"epoch": 0, "time": 2.0, "wait_q": [{"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 2.0}, {"wait_time": 1, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 2, "needed_cores": 2441, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 3, "needed_cores": 3245, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 2.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 2.0}], "run_q": []}, "3.0": {"epoch": 0, "time": 3.0, "wait_q": [{"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 3.0}, {"wait_time": 2, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 3.0}, {"wait_time": 1, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 3, "needed_cores": 3245, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 3.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 3.0}], "run_q": []}, "4.0": {"epoch": 0, "time": 4.0, "wait_q": [{"wait_time": 3, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 4.0}, {"wait_time": 3, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 4.0}, {"wait_time": 1, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 2, "needed_cores": 2441, "epoch": 4.0}, {"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 4.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 4.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 4.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 4.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 4.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 4.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 4.0}], "run_q": []}, "5.0": {"epoch": 0, "time": 5.0, "wait_q": [{"wait_time": 4, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 5.0}, {"wait_time": 4, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 5.0}, {"wait_time": 2, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 5.0}, {"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 3, "needed_cores": 3245, "epoch": 5.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 5.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 5.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 5.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 5.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 5.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 5.0}], "run_q": []}, "6.0": {"epoch": 0, "time": 6.0, "wait_q": [{"wait_time": 5, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 6.0}, {"wait_time": 5, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 6.0}, {"wait_time": 3, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 6.0}, {"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 6.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 6.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 6.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 6.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 6.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 6.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 6.0}], "run_q": []}, "7.0": {"epoch": 0, "time": 7.0, "wait_q": [{"wait_time": 6, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 7.0}, {"wait_time": 6, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 7.0}, {"wait_time": 4, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 7.0}, {"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 3, "needed_cores": 3245, "epoch": 7.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 7.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 7.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 7.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 7.0}, {"wait_time": 0, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 7.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 7.0}], "run_q": []}, "8.0": {"epoch": 0, "time": 8.0, "wait_q": [{"wait_time": 7, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 8.0}, {"wait_time": 7, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 8.0}, {"wait_time": 5, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 8.0}, {"wait_time": 3, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 8.0}, {"wait_time": 0, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 8.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 8.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 8.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 8.0}, {"wait_time": 1, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 8.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 8.0}], "run_q": []}, "9.0": {"epoch": 0, "time": 9.0, "wait_q": [{"wait_time": 8, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 9.0}, {"wait_time": 8, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 9.0}, {"wait_time": 6, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 9.0}, {"wait_time": 4, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 9.0}, {"wait_time": 1, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 9.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 9.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 9.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 9.0}, {"wait_time": 1, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 9.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 9.0}], "run_q": []}, "10.0": {"epoch": 0, "time": 10.0, "wait_q": [{"wait_time": 9, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 10.0}, {"wait_time": 9, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 10.0}, {"wait_time": 7, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 10.0}, {"wait_time": 5, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 10.0}, {"wait_time": 1, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 10.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 10.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 10.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 10.0}, {"wait_time": 2, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 10.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 10.0}], "run_q": []}, "11.0": {"epoch": 0, "time": 11.0, "wait_q": [{"wait_time": 10, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 11.0}, {"wait_time": 10, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 11.0}, {"wait_time": 8, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 11.0}, {"wait_time": 6, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 11.0}, {"wait_time": 2, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 11.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 11.0}, {"wait_time": 0, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 11.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 11.0}, {"wait_time": 2, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 11.0}, {"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 11.0}], "run_q": []}, "12.0": {"epoch": 0, "time": 12.0, "wait_q": [{"wait_time": 11, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 12.0}, {"wait_time": 11, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 12.0}, {"wait_time": 9, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 12.0}, {"wait_time": 7, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 12.0}, {"wait_time": 2, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 12.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 12.0}, {"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 12.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 12.0}, {"wait_time": 3, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 12.0}, {"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 12.0}], "run_q": []}, "13.0": {"epoch": 0, "time": 13.0, "wait_q": [{"wait_time": 12, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 13.0}, {"wait_time": 12, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 13.0}, {"wait_time": 10, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 13.0}, {"wait_time": 8, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 13.0}, {"wait_time": 3, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 13.0}, {"wait_time": 0, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 13.0}, {"wait_time": 1, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 13.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 13.0}, {"wait_time": 3, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 13.0}, {"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 13.0}], "run_q": []}, "14.0": {"epoch": 0, "time": 14.0, "wait_q": [{"wait_time": 13, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 14.0}, {"wait_time": 13, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 14.0}, {"wait_time": 11, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 14.0}, {"wait_time": 9, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 14.0}, {"wait_time": 3, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 14.0}, {"wait_time": 1, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "WAITING", "model_id": 5, "needed_cores": 236, "epoch": 14.0}, {"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 14.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 14.0}, {"wait_time": 4, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 14.0}, {"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 14.0}], "run_q": []}, "15.0": {"epoch": 0, "time": 15.0, "wait_q": [{"wait_time": 14, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 15.0}, {"wait_time": 14, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 15.0}, {"wait_time": 12, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 15.0}, {"wait_time": 10, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 15.0}, {"wait_time": 4, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 15.0}, {"wait_time": 1, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 15.0}, {"wait_time": 2, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 15.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 15.0}, {"wait_time": 4, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 15.0}, {"wait_time": 3, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 15.0}], "run_q": []}, "16.0": {"epoch": 0, "time": 16.0, "wait_q": [{"wait_time": 15, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 16.0}, {"wait_time": 15, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 16.0}, {"wait_time": 13, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 16.0}, {"wait_time": 11, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 16.0}, {"wait_time": 4, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 16.0}, {"wait_time": 2, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "WAITING", "model_id": 5, "needed_cores": 236, "epoch": 16.0}, {"wait_time": 3, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 16.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 16.0}, {"wait_time": 5, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 16.0}, {"wait_time": 3, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 16.0}], "run_q": []}, "17.0": {"epoch": 0, "time": 17.0, "wait_q": [{"wait_time": 16, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 17.0}, {"wait_time": 16, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 17.0}, {"wait_time": 14, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 17.0}, {"wait_time": 12, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 17.0}, {"wait_time": 5, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 17.0}, {"wait_time": 2, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 17.0}, {"wait_time": 3, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 17.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 17.0}, {"wait_time": 5, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 17.0}, {"wait_time": 4, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 17.0}], "run_q": []}, "18.0": {"epoch": 0, "time": 18.0, "wait_q": [{"wait_time": 17, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 18.0}, {"wait_time": 17, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 18.0}, {"wait_time": 15, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 18.0}, {"wait_time": 13, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 18.0}, {"wait_time": 5, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 18.0}, {"wait_time": 3, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "WAITING", "model_id": 5, "needed_cores": 236, "epoch": 18.0}, {"wait_time": 4, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 18.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 18.0}, {"wait_time": 6, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 18.0}, {"wait_time": 4, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 18.0}], "run_q": []}, "19.0": {"epoch": 0, "time": 19.0, "wait_q": [{"wait_time": 18, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 19.0}, {"wait_time": 18, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 19.0}, {"wait_time": 16, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 19.0}, {"wait_time": 14, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 19.0}, {"wait_time": 6, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 19.0}, {"wait_time": 3, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 19.0}, {"wait_time": 4, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 19.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 19.0}, {"wait_time": 6, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 8, "needed_cores": 3546, "epoch": 19.0}, {"wait_time": 5, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 19.0}], "run_q": []}, "20.0": {"epoch": 0, "time": 20.0, "wait_q": [{"wait_time": 19, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 20.0}, {"wait_time": 19, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 20.0}, {"wait_time": 17, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 20.0}, {"wait_time": 15, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 20.0}, {"wait_time": 6, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 20.0}, {"wait_time": 4, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "WAITING", "model_id": 5, "needed_cores": 236, "epoch": 20.0}, {"wait_time": 5, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 20.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 20.0}, {"wait_time": 7, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 20.0}, {"wait_time": 5, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 20.0}], "run_q": []}, "21.0": {"epoch": 0, "time": 21.0, "wait_q": [{"wait_time": 20, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 21.0}, {"wait_time": 20, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 21.0}, {"wait_time": 18, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 21.0}, {"wait_time": 16, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 21.0}, {"wait_time": 7, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 21.0}, {"wait_time": 4, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 21.0}, {"wait_time": 5, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 21.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 21.0}, {"wait_time": 8, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 21.0}, {"wait_time": 6, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 21.0}], "run_q": []}, "22.0": {"epoch": 0, "time": 22.0, "wait_q": [{"wait_time": 21, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 22.0}, {"wait_time": 21, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 22.0}, {"wait_time": 19, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 22.0}, {"wait_time": 17, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 22.0}, {"wait_time": 7, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 4, "needed_cores": 269, "epoch": 22.0}, {"wait_time": 5, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "WAITING", "model_id": 5, "needed_cores": 236, "epoch": 22.0}, {"wait_time": 6, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 22.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 22.0}, {"wait_time": 9, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 22.0}, {"wait_time": 6, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 22.0}], "run_q": []}, "23.0": {"epoch": 0, "time": 23.0, "wait_q": [{"wait_time": 22, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 23.0}, {"wait_time": 22, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 23.0}, {"wait_time": 20, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 23.0}, {"wait_time": 18, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 23.0}, {"wait_time": 8, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 23.0}, {"wait_time": 5, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 5, "needed_cores": 236, "epoch": 23.0}, {"wait_time": 6, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 6, "needed_cores": 75, "epoch": 23.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 23.0}, {"wait_time": 10, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 23.0}, {"wait_time": 7, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "WAITING", "model_id": 9, "needed_cores": 560, "epoch": 23.0}], "run_q": []}, "24.0": {"epoch": 0, "time": 24.0, "wait_q": [{"wait_time": 23, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 24.0}, {"wait_time": 23, "run_time": 0, "needed_time": 16, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 1, "needed_cores": 3682, "epoch": 24.0}, {"wait_time": 21, "run_time": 0, "needed_time": 24, "start_time": 2, "current_run_time": 0, "state": "WAITING", "model_id": 2, "needed_cores": 2441, "epoch": 24.0}, {"wait_time": 19, "run_time": 0, "needed_time": 1, "start_time": 3, "current_run_time": 0, "state": "WAITING", "model_id": 3, "needed_cores": 3245, "epoch": 24.0}, {"wait_time": 9, "run_time": 0, "needed_time": 8, "start_time": 8, "current_run_time": 0, "state": "WAITING", "model_id": 4, "needed_cores": 269, "epoch": 24.0}, {"wait_time": 6, "run_time": 0, "needed_time": 26, "start_time": 13, "current_run_time": 0, "state": "WAITING", "model_id": 5, "needed_cores": 236, "epoch": 24.0}, {"wait_time": 7, "run_time": 0, "needed_time": 1, "start_time": 11, "current_run_time": 0, "state": "WAITING", "model_id": 6, "needed_cores": 75, "epoch": 24.0}, {"wait_time": 0, "run_time": 0, "needed_time": 28, "start_time": 28, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 7, "needed_cores": 1650, "epoch": 24.0}, {"wait_time": 11, "run_time": 0, "needed_time": 14, "start_time": 7, "current_run_time": 0, "state": "WAITING", "model_id": 8, "needed_cores": 3546, "epoch": 24.0}, {"wait_time": 7, "run_time": 0, "needed_time": 1, "start_time": 10, "current_run_time": 0, "state": "PRE_WAIT", "model_id": 9, "needed_cores": 560, "epoch": 24.0}], "run_q": []}, "25.0": {"epoch": 0, "time": 25.0, "wait_q": [{"wait_time": 24, "run_time": 0, "needed_time": 1, "start_time": 1, "current_run_time": 0, "state": "WAITING", "model_id": 0, "needed_cores": 1787, "epoch": 25.0}, {"wait_time": 24, "run_time": 
+{
+  "1.0": {
+    "epoch": 0,
+    "time": 1.0,
+    "wait_q": [
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 1.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 1.0
+      }
+    ],
+    "run_q": []
+  },
+  "2.0": {
+    "epoch": 0,
+    "time": 2.0,
+    "wait_q": [
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 2.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 2.0
+      }
+    ],
+    "run_q": []
+  },
+  "3.0": {
+    "epoch": 0,
+    "time": 3.0,
+    "wait_q": [
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 3.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 3.0
+      }
+    ],
+    "run_q": []
+  },
+  "4.0": {
+    "epoch": 0,
+    "time": 4.0,
+    "wait_q": [
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 4.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 4.0
+      }
+    ],
+    "run_q": []
+  },
+  "5.0": {
+    "epoch": 0,
+    "time": 5.0,
+    "wait_q": [
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 5.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 5.0
+      }
+    ],
+    "run_q": []
+  },
+  "6.0": {
+    "epoch": 0,
+    "time": 6.0,
+    "wait_q": [
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 6.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 6.0
+      }
+    ],
+    "run_q": []
+  },
+  "7.0": {
+    "epoch": 0,
+    "time": 7.0,
+    "wait_q": [
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 7.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 7.0
+      }
+    ],
+    "run_q": []
+  },
+  "8.0": {
+    "epoch": 0,
+    "time": 8.0,
+    "wait_q": [
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 8.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 8.0
+      }
+    ],
+    "run_q": []
+  },
+  "9.0": {
+    "epoch": 0,
+    "time": 9.0,
+    "wait_q": [
+      {
+        "wait_time": 8,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 8,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 9.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 9.0
+      }
+    ],
+    "run_q": []
+  },
+  "10.0": {
+    "epoch": 0,
+    "time": 10.0,
+    "wait_q": [
+      {
+        "wait_time": 9,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 9,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 10.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 10.0
+      }
+    ],
+    "run_q": []
+  },
+  "11.0": {
+    "epoch": 0,
+    "time": 11.0,
+    "wait_q": [
+      {
+        "wait_time": 10,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 10,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 8,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 11.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 11.0
+      }
+    ],
+    "run_q": []
+  },
+  "12.0": {
+    "epoch": 0,
+    "time": 12.0,
+    "wait_q": [
+      {
+        "wait_time": 11,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 11,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 9,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 12.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 12.0
+      }
+    ],
+    "run_q": []
+  },
+  "13.0": {
+    "epoch": 0,
+    "time": 13.0,
+    "wait_q": [
+      {
+        "wait_time": 12,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 12,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 10,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 8,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 13.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 13.0
+      }
+    ],
+    "run_q": []
+  },
+  "14.0": {
+    "epoch": 0,
+    "time": 14.0,
+    "wait_q": [
+      {
+        "wait_time": 13,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 13,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 11,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 9,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 14.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 14.0
+      }
+    ],
+    "run_q": []
+  },
+  "15.0": {
+    "epoch": 0,
+    "time": 15.0,
+    "wait_q": [
+      {
+        "wait_time": 14,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 14,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 12,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 10,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 1,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 15.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 15.0
+      }
+    ],
+    "run_q": []
+  },
+  "16.0": {
+    "epoch": 0,
+    "time": 16.0,
+    "wait_q": [
+      {
+        "wait_time": 15,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 15,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 13,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 11,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 16.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 16.0
+      }
+    ],
+    "run_q": []
+  },
+  "17.0": {
+    "epoch": 0,
+    "time": 17.0,
+    "wait_q": [
+      {
+        "wait_time": 16,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 16,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 14,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 12,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 2,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 17.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 17.0
+      }
+    ],
+    "run_q": []
+  },
+  "18.0": {
+    "epoch": 0,
+    "time": 18.0,
+    "wait_q": [
+      {
+        "wait_time": 17,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 17,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 15,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 13,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 18.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 18.0
+      }
+    ],
+    "run_q": []
+  },
+  "19.0": {
+    "epoch": 0,
+    "time": 19.0,
+    "wait_q": [
+      {
+        "wait_time": 18,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 18,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 16,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 14,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 3,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 19.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 19.0
+      }
+    ],
+    "run_q": []
+  },
+  "20.0": {
+    "epoch": 0,
+    "time": 20.0,
+    "wait_q": [
+      {
+        "wait_time": 19,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 19,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 17,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 15,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 20.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 20.0
+      }
+    ],
+    "run_q": []
+  },
+  "21.0": {
+    "epoch": 0,
+    "time": 21.0,
+    "wait_q": [
+      {
+        "wait_time": 20,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 20,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 18,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 16,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 4,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 8,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 21.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 21.0
+      }
+    ],
+    "run_q": []
+  },
+  "22.0": {
+    "epoch": 0,
+    "time": 22.0,
+    "wait_q": [
+      {
+        "wait_time": 21,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 21,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 19,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 17,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 9,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 22.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 22.0
+      }
+    ],
+    "run_q": []
+  },
+  "23.0": {
+    "epoch": 0,
+    "time": 23.0,
+    "wait_q": [
+      {
+        "wait_time": 22,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 22,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 20,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 18,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 8,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 5,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 10,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 23.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 23.0
+      }
+    ],
+    "run_q": []
+  },
+  "24.0": {
+    "epoch": 0,
+    "time": 24.0,
+    "wait_q": [
+      {
+        "wait_time": 23,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 23,
+        "run_time": 0,
+        "needed_time": 16,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 1,
+        "needed_cores": 3682,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 21,
+        "run_time": 0,
+        "needed_time": 24,
+        "start_time": 2,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 2,
+        "needed_cores": 2441,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 19,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 3,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 3,
+        "needed_cores": 3245,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 9,
+        "run_time": 0,
+        "needed_time": 8,
+        "start_time": 8,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 4,
+        "needed_cores": 269,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 6,
+        "run_time": 0,
+        "needed_time": 26,
+        "start_time": 13,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 5,
+        "needed_cores": 236,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 11,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 6,
+        "needed_cores": 75,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 0,
+        "run_time": 0,
+        "needed_time": 28,
+        "start_time": 28,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 7,
+        "needed_cores": 1650,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 11,
+        "run_time": 0,
+        "needed_time": 14,
+        "start_time": 7,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 8,
+        "needed_cores": 3546,
+        "epoch": 24.0
+      },
+      {
+        "wait_time": 7,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 10,
+        "current_run_time": 0,
+        "state": "PRE_WAIT",
+        "model_id": 9,
+        "needed_cores": 560,
+        "epoch": 24.0
+      }
+    ],
+    "run_q": []
+  },
+  "25.0": {
+    "epoch": 0,
+    "time": 25.0,
+    "wait_q": [
+      {
+        "wait_time": 24,
+        "run_time": 0,
+        "needed_time": 1,
+        "start_time": 1,
+        "current_run_time": 0,
+        "state": "WAITING",
+        "model_id": 0,
+        "needed_cores": 1787,
+        "epoch": 25.0
+      },
+      {
+        "wait_time": 24,
+        "run_time":

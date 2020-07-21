@@ -66,3 +66,11 @@ def test_non_nengo_rr(create_non_nengo_scheduler):
                 assert(sched.waiting_proc_size < 1)
     print(rtx)
 
+def test_load_json():
+    from pathlib import Path
+    model_data_file = Path("/Users/plaggm/dev/nemo-codes/config/paper_models.json")
+    sched_type = "RR"
+    rr_ts = 100
+    scheduler = ConventScheduler(mode=sched_type, total_cores=4096, time_slice=rr_ts,
+                                 proc_js_file=str(model_data_file.absolute()))
+
