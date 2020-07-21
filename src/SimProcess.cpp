@@ -4,6 +4,9 @@
 
 #include "SimProcess.h"
 #include <iostream>
+#include <pybind11/pybind11.h>
+#include <pybind11/embed.h>
+
 namespace neuro_os { namespace sim_proc {
 
 
@@ -69,6 +72,7 @@ namespace neuro_os { namespace sim_proc {
 			total_run_time = 0;
 			total_wait_time = 0;
 			current_state = WAITING;
+			model_id = PID;
 		}
 
 		std::ostream &operator<<(std::ostream &os, const SimProcess &process) {
@@ -161,6 +165,14 @@ namespace neuro_os { namespace sim_proc {
 				current_state = WAITING;
 			}
 		}
+		SimProcess::SimProcess(int model_id, int needed_cores, int needed_time,
+							   int current_state):model_id(model_id), needed_cores(needed_cores),
+													needed_run_time(needed_time) {
+			PID = model_id;
+			this->current_state = static_cast<PROC_STATE>(PY_PROC_STATE::get_proc_state_from_py(current_state));
+
+
+		}
 
 		//        template <class T>
 //        void from_json(const json &j, const SimProcess &p){
@@ -170,5 +182,17 @@ namespace neuro_os { namespace sim_proc {
 //            j.at("scheduled_start_time").get_to(p.scheduled_start_time);
 //            j.at("neuron_state_system").get_to(p.neuron_state_system);
 //        }
+		namespace  py = pybind11;
 
-} }
+
+		template <>
+		SimProcess create_proc_from_pyobj(py::list python_process){
+#define PV(S) proc_data[S].cast<int>()
+			py::dict proc_data = python_process.attr("to_dict")();
+			int state = PY_PROC_STATE::GET_STATE_FROM_NAME(proc_data["state"].cast<std::string>());
+			return SimProcess(PV("MODEL_ID"),PV("needed_cores"),PV("needed_time"),state);
+#undef PV
+		}
+
+	}
+}
