@@ -112,6 +112,7 @@ class RoundRobinScheduler():
             ## Filter for spikes:
 
             nengo.Connection(add_new_proc_system, qsim_add_spike)
+            #  deepcode ignore MultiplyList: Pointing to the list is okay here since neurons are read-only
             nengo.Connection(qsim_add_spike, add_new_proc_system.neurons, transform=[[-1]] * self.calc_n_neurons)
 
             ## RR Clock
