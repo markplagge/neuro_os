@@ -30,7 +30,7 @@ g_num_cores = 4096
 
 
 class Process:
-    def __init__(self, max_cores=4096, n_cores=None, time_needed=None, max_time=32, model_id=0, start_time = 0):
+    def __init__(self, max_cores=4096, n_cores=None, time_needed=None, max_time=32, model_id=0, start_time = 0, task_id=0):
         if n_cores is None:
             self.needed_cores = random.randint(1, max_cores)
         else:
@@ -53,6 +53,11 @@ class Process:
         self.current_run_time = 0
         self.model_id = model_id
         self.pre_wait_time = 0
+        self._task_id=task_id
+
+    @property
+    def task_id(self):
+        return self._task_id
 
     @property
     def needed_time(self):
@@ -828,7 +833,7 @@ class RRProcessStatus(Process):
 
 
 class SimpleProc:
-    def __init__(self,name, id,arrival,start_NU,compute_time,cores):
+    def __init__(self,name, id,arrival,start_NU,compute_time,cores,task_id):
         self.name = name
         self.id = id
         self.arrival = arrival
@@ -837,6 +842,7 @@ class SimpleProc:
         self.current_time = 0
         self.state = PROC_STATE.WAITING if self.arrival == 0 else PROC_STATE.PRE_WAIT
         self.proc = RRProcessStatus(n_cores = self.cores, time_needed=self.compute, model_id = id,start_time=self.arrival)
+        self._task_id = task_id
         assert (self.proc.needed_time == self.compute)
         assert(arrival == start_NU)
 

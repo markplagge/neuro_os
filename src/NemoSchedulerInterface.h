@@ -23,5 +23,7 @@ namespace neuro_os {
 	std::vector<int> precompute_run_q_non_nengo(const neuro_os::NengoInterface& nengo);
 	void increment_pc_non_nengo(const neuro_os::NengoInterface& nengo);
 	void run_precompute_sim_non_nengo(const NengoInterface& nengo, int n_ticks);
+	std::vector<int> get_models_to_start_at_time(NengoInterface *nengo, unsigned long time);
+	std::vector<int> get_models_to_stop_at_time(NengoInterface *nengo, unsigned long time);
 }
 #endif//NEMOTNG_NEMOSCHEDULERINTERFACE_H

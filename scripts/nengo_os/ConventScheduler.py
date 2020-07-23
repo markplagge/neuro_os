@@ -17,6 +17,8 @@ except:
 class ConventScheduler:
     def __init__(self, simple_proc_list=None, mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True,
                  proc_js_file=None):
+        pjs = "NOPE" if proc_js_file is None else proc_js_file
+        print(f'---------CVT loading {pjs} ')
         self.multiplexing = multiplexing
         if mode == "FCFS":
             time_slice = -1
@@ -49,7 +51,7 @@ class ConventScheduler:
         self.precompute_running_procs = []
         self.precompute_waiting_procs = []
         self.precompute_time = 0
-
+        print(f"CVT. Scheduler ------ mode: {mode}  --- \n Waiting processes: ----- {' '.join([str(p) for p in self.queue.wait_q])}")
     @property
     def waiting_procs(self):
         waiting_procs = []
@@ -145,9 +147,10 @@ class ConventScheduler:
         return self.current_time
 
     def precompute_scheduler(self, time):
+        print(f'CVT-: PCT {time}')
         for _ in range(time + 1):
-            self.precompute_waiting_procs.append(self.waiting_proc_list)
-            self.precompute_running_procs.append(self.running_proc_list)
+            self.precompute_waiting_procs.append([p.task_id for p in  self.queue.wait_q])
+            self.precompute_running_procs.append([p.task_id for p in self.queue.run_q])
             self.scheduler_run_tick()
 
     def increment_pc(self):
@@ -156,14 +159,33 @@ class ConventScheduler:
     def get_precompute_lists_at_time(self, time):
         if time < 0:
             time = self.precompute_time
-
+        if len(self.precompute_running_procs) < time:
+            self.precompute_scheduler(time)
         return self.precompute_waiting_procs[time], self.precompute_running_procs[time]
 
     def get_precompute_wait_at_time(self, time=-1):
-        return self.get_precompute_wait_at_time(time)[0]
+        return self.get_precompute_lists_at_time(time)[0]
 
     def get_precompute_run_at_time(self, time=-1):
-        return self.get_precompute_run_at_time(time)[1]
+        return self.get_precompute_lists_at_time(time)[1]
+
+    def get_messages_at_time(self, time=-1, queue=0):
+
+        if time > self.precompute_time:
+            diff = time - self.precompute_time
+            self.precompute_scheduler(diff)
+
+        ql = self.get_precompute_lists_at_time(time)[queue] #0 is wait, 1 is run
+
+        if time == 0:
+            msgs = ql
+        else:
+            prev_q = self.get_precompute_lists_at_time(time - 1 )[queue]
+            msgs = list (set(prev_q) - set(ql))
+        print(f'Returning messages: {" ".join([str(m) for m in msgs])}')
+        return [p.model_id for  p in msgs]
+
+
 
     def __str__(self):
         rp = "\n".join([str(p) for p in self.queue.run_q])

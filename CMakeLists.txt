@@ -19,7 +19,9 @@ set(NEURO_OS_LIB
         src/NengoInterface.h src/NemoSchedulerInterface.cpp src/NemoSchedulerInterface.h)
 
 add_library(neuro_os  ${NEURO_OS_LIB} )
-add_executable(neuro_os_bin main.cpp)
+if (NOS_IN_NEMO)
+    add_executable(neuro_os_bin main.cpp)
+endif()
 
 add_subdirectory(extern/pybind11)
 
@@ -30,15 +32,18 @@ set(PYBIND11_CPP_STANDARD -std=c++11)
 target_link_libraries(neuro_os PRIVATE pybind11::embed)
 #target_link_libraries(neuro_os_bin neuro_os)
 target_link_libraries(neuro_os_bin PRIVATE neuro_os pybind11::embed)
+target_include_directories(neuro_os PUBLIC extern/pybind11 extern/pybind11/include extern/pybind11/include/pybind11 ${PYBIND11_INCLUDE_DIR})
+target_include_directories(neuro_os_bin PUBLIC extern/pybind11 extern/pybind11/include extern/pybind11/include/pybind11 ${PYBIND11_INCLUDE_DIR})
+include_directories(${PYBIND11_INCLUDE_DIR} extern/pybind11/include/)
 
-target_include_directories(neuro_os PUBLIC extern/pybind11)
-target_include_directories(neuro_os_bin PUBLIC extern/pybind11)
+
 
 #target_link_libraries(fcfs_logic_system simclist)
 set_property(TARGET neuro_os PROPERTY CXX_STANDARD 14)
 enable_testing()
 
 set(NEURO_OS_TEST_SRC tests/test_test.cpp tests/test_sim_process_system.cpp tests/test_sim_process.cpp)
+message(${NOS_ENABLE_UNIT_TESTS})
 if(NOS_ENABLE_UNIT_TESTS)
     set(CATCH_CONFIG_ENABLE_BENCHMARKING 1)
     add_compile_definitions(CATCH_CONFIG_ENABLE_BENCHMARKING)

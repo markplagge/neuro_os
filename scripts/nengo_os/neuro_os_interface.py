@@ -254,8 +254,11 @@ class NemoNengoInterface(NemoNengoInterfaceBase):
                 needed_time = mod_dat[mid]['needed_time']
                 needed_cores = mod_dat[mid]['needed_cores']
                 scheduled_start_time = task['start_time']
+                task_id = task['task_id']
                 p = RRProcessStatus(n_cores=needed_cores, time_needed=needed_time, model_id=mid,
-                            start_time=scheduled_start_time)
+                            start_time=scheduled_start_time,task_id=task_id)
+
+
                 self.process_list.append(p)
 
 
