@@ -141,6 +141,7 @@ class RoundRobinScheduler():
                 interupt_proc = nengo.Ensemble(n_neurons=1024, dimensions=1)
                 c = nengo.Ensemble(n_neurons=1024, dimensions=1)
                 nengo.Connection(stim, interupt_proc)
+                # deepcode ignore MultiplyList: Read-Only list, only used to modify the nengo connection
                 nengo.Connection(c, interupt_proc.neurons, transform=[[-2.5]] * 1024)
                 nengo.Connection(inhibition, c)
                 clock = nengo.Node(node_tick_clock)

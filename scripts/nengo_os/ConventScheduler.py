@@ -156,10 +156,13 @@ class ConventScheduler:
     def increment_pc(self):
         self.precompute_time += 1
 
+    def get_current_precompute_time(self):
+        return self.precompute_time
+
     def get_precompute_lists_at_time(self, time):
         if time < 0:
             time = self.precompute_time
-        if len(self.precompute_running_procs) < time:
+        if len(self.precompute_running_procs) < time or len(self.precompute_running_procs) < time:
             self.precompute_scheduler(time)
         return self.precompute_waiting_procs[time], self.precompute_running_procs[time]
 

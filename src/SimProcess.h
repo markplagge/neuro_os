@@ -5,7 +5,7 @@
 #ifndef SUPERNEMO_SIMPROCESS_H
 #define SUPERNEMO_SIMPROCESS_H
 
-#include "../lib/json.hpp"
+
 #include "./process_states.h"
 #include <iostream>
 #include <ostream>
@@ -13,7 +13,7 @@
 
 namespace neuro_os {
 	namespace sim_proc {
-		using nlohmann::json;
+
 
 		struct SimProcess {
 			SimProcess(int pid, int neededCores, int neededRunTime, double scheduledStartTime);

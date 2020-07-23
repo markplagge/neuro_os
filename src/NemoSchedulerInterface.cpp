@@ -54,9 +54,9 @@ namespace neuro_os {
 	}
 	neuro_os::NengoSchedulerStatus get_nengo_status_non_nengo(const NengoInterface& nengo) {
 		auto epoch = nengo.nengo_os_iface.attr("precompute_time").cast<int>();
-		auto run_q = precompute_run_q(nengo);
-		auto wait_q = precompute_wait_q(nengo);
-		increment_pc(nengo);
+		auto run_q = precompute_run_q_non_nengo(nengo);
+		auto wait_q = precompute_wait_q_non_nengo(nengo);
+		increment_pc_non_nengo(nengo);
 		NengoSchedulerStatus status(epoch, run_q, wait_q);
 		return status;
 	}
@@ -81,5 +81,48 @@ namespace neuro_os {
 		}
 		return stop_model_evts;
 	}
-}
+	int get_sched_time(NengoInterface* nengo) {
+		return nengo->nengo_os_iface.attr("get_current_precompute_time")().cast<int>();
+	}
+	using namespace pybind11::literals;
 
+	ProcEvent create_evt_from_py_dict(py::dict python_event, py::module& module) {
+#define PY_CST(f) python_event[f].cast<int>()
+		auto pe = ProcEvent(
+				PY_CST("model_id"),
+				PY_CST("task_id"),
+				PY_CST("event_type"),
+				PY_CST("time"));
+#undef PY_CST
+		return pe;
+	}
+
+	NemoSelfContainedScheduler::NemoSelfContainedScheduler(int mode, int total_cores, int time_slice, bool multiplexing, std::string proc_js_file, unsigned int end_ts) {
+		py::scoped_interpreter guard{};
+		py::module sim_mod = py::module::import("nengo_os");
+		//run compute_nos_conventional_event_dict
+		py::list scheduler_result = sim_mod.attr("compute_nos_conventional_event_list")(mode, total_cores, time_slice, multiplexing, proc_js_file, end_ts);
+		//each element in the list is a Event so convert them, and create the self-contained list of events
+
+		for (auto evt : scheduler_result) {
+			py::dict evt_dict = evt.attr("get_event_from_c_int")().cast<py::dict>();
+			auto proc_event = create_evt_from_py_dict(evt_dict, sim_mod);
+			if (this->proc_events.count(proc_event.event_time) == 0) {
+				this->proc_events[proc_event.event_time] = std::vector<ProcEvent>();
+			}
+			this->proc_events[proc_event.event_time].push_back(proc_event);
+		}
+
+		//		def compute_nos_conventional_event_list(mode="FCFS", total_cores=4096, time_slice=50, multiplexing=True,
+		//		proc_js_file=None, end_ts = 10000):
+	}
+	std::vector<ProcEvent> NemoSelfContainedScheduler::get_event_at_time(int time) {
+		if (this->proc_events.count(time)) {
+			return this->proc_events[time];
+		}
+		else {
+			return std::vector<ProcEvent>();
+		}
+	}
+
+}// namespace neuro_os

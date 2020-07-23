@@ -4,13 +4,13 @@
 
 #include "SimProcess.h"
 #include <iostream>
-#include <pybind11/pybind11.h>
-#include <pybind11/embed.h>
+#include "../extern/pybind11/include/pybind11/pybind11.h"
+#include "../extern/pybind11/include/pybind11/embed.h"
 
 namespace neuro_os { namespace sim_proc {
 
-
-
+#if SINGLEPROC
+#include "../lib/json.hpp"
         SimProcess from_json_factory(const nlohmann::json &j ){
             auto pid = j.at("PID").get<int>();
             auto needed_cores = j.at("needed_cores").get<int>();
@@ -20,25 +20,6 @@ namespace neuro_os { namespace sim_proc {
             auto p = SimProcess(pid,needed_cores,needed_run_time,scheduled_start_time);
             return p;
         }
-
-
-		bool SimProcess::operator==(const SimProcess &rhs) const {
-			return PID == rhs.PID &&
-					needed_cores == rhs.needed_cores &&
-					needed_run_time == rhs.needed_run_time &&
-					scheduled_start_time == rhs.scheduled_start_time &&
-					total_wait_time == rhs.total_wait_time &&
-					total_run_time == rhs.total_run_time &&
-					current_state == rhs.current_state;
-
-		}
-
-
-		bool SimProcess::operator!=(const SimProcess &rhs) const {
-			return !(rhs == *this);
-		}
-
-
 		void to_json(json &j, const SimProcess &p) {
 			j = json{
 					{"PID",                  p.PID},
@@ -65,6 +46,25 @@ namespace neuro_os { namespace sim_proc {
 
 
 		SimProcess from_json_factory(const nlohmann::json &j );
+
+#endif
+		bool SimProcess::operator==(const SimProcess &rhs) const {
+			return PID == rhs.PID &&
+					needed_cores == rhs.needed_cores &&
+					needed_run_time == rhs.needed_run_time &&
+					scheduled_start_time == rhs.scheduled_start_time &&
+					total_wait_time == rhs.total_wait_time &&
+					total_run_time == rhs.total_run_time &&
+					current_state == rhs.current_state;
+
+		}
+
+
+		bool SimProcess::operator!=(const SimProcess &rhs) const {
+			return !(rhs == *this);
+		}
+
+
 
 
 		SimProcess::SimProcess(int pid, int neededCores, int neededRunTime, double scheduledStartTime):PID(pid), needed_cores(neededCores), needed_run_time(neededRunTime),
