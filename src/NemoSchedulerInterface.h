@@ -7,7 +7,7 @@
 #include "../extern/pybind11/include/pybind11/embed.h"
 #include "NengoInterface.h"
 #include "SimProcess.h"
-#include <pybind11/pybind11.h>
+#include "../extern/pybind11/include/pybind11/pybind11.h"
 #include <vector>
 #include <deque>
 #include <map>
@@ -59,5 +59,7 @@ namespace neuro_os {
 	std::vector<int> get_models_to_start_at_time(NengoInterface *nengo, unsigned long time);
 	std::vector<int> get_models_to_stop_at_time(NengoInterface *nengo, unsigned long time);
 	int get_sched_time(NengoInterface * nengo);
+
 }
+
 #endif//NEMOTNG_NEMOSCHEDULERINTERFACE_H

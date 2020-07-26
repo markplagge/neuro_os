@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 OPTION(NOS_ENABLE_UNIT_TESTS  "Enable FCFS unit tests (uses Catch2)" OFF )
 project(NeuroOS LANGUAGES CXX VERSION 0.1.5)
 
+add_subdirectory(extern/pybind11)
 
 set(NEURO_OS_LIB
         include/neuro_os.h
@@ -16,14 +17,17 @@ set(NEURO_OS_LIB
         src/SimProcessQueue.cpp
         src/SimProcessQueue.h
         src/NengoInterface.cpp
-        src/NengoInterface.h src/NemoSchedulerInterface.cpp src/NemoSchedulerInterface.h)
+        src/NengoInterface.h
+        src/NemoSchedulerInterface.cpp
+        src/NemoSchedulerInterface.h
+        src/NemoNosScheduler.cpp
+        src/NemoNosScheduler.h)
 
 add_library(neuro_os  ${NEURO_OS_LIB} )
 if (NOS_IN_NEMO)
     add_executable(neuro_os_bin main.cpp)
 endif()
 
-add_subdirectory(extern/pybind11)
 
 
 

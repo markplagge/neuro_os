@@ -80,7 +80,7 @@ class ConventScheduler:
     def running_proc_list(self):
         return self.running_procs[1]
 
-    @property
+
     def waiting_proc_size(self):
         return self.waiting_procs[0]
 
@@ -94,22 +94,21 @@ class ConventScheduler:
 
     @property
     def is_process_waiting(self):
-        return self.waiting_proc_size > 0
+        wps = self.waiting_proc_size()
+        return wps > 0
 
     @property
     def is_done(self):
         done = all(p.current_state == "DONE" for p in self.queue.wait_q)
-        for p in self.queue.run_q:
-            if p.current_state != "DONE":
-                done = False
-
-        return done
+        d2 = all(p.current_state == "DONE" for p in self.queue.run_q)
+        return done or d2
 
     def can_add_next_proc(self):
         if self.is_process_waiting:
             if self.multiplexing:
-                wps = self.waiting_proc_size
-                if wps <= self.available_cores and wps > 0:
+                wps = self.waiting_proc_size()
+                avail_cores = self.available_cores
+                if avail_cores >= wps > 0:
                     return True
             elif self.running_proc_size == 0:
                 return True

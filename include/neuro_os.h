@@ -24,8 +24,11 @@ namespace neuro_os {
 		struct SimProcessQueue;
 		struct SimProcessSerial;
         struct  NengoInterface;
+	}// namespace sim_proc
 
-    }// namespace sim_proc
+
+
+
 }
 
 #endif//NEMOTNG_NEURO_OS_H

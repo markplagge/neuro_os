@@ -56,6 +56,9 @@ class Process:
         self._task_id=task_id
 
     @property
+    def job_id(self):
+        return self._task_id
+    @property
     def task_id(self):
         return self._task_id
 

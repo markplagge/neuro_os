@@ -97,6 +97,7 @@ namespace neuro_os {
 		return pe;
 	}
 
+
 	NemoSelfContainedScheduler::NemoSelfContainedScheduler(int mode, int total_cores, int time_slice, bool multiplexing, std::string proc_js_file, unsigned int end_ts) {
 		py::scoped_interpreter guard{};
 		py::module sim_mod = py::module::import("nengo_os");
@@ -124,5 +125,7 @@ namespace neuro_os {
 			return std::vector<ProcEvent>();
 		}
 	}
+
+
 
 }// namespace neuro_os
