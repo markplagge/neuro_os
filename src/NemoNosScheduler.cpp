@@ -110,8 +110,8 @@ namespace neuro_os {
 	}
 	FileSpike convert_spike_dict_to_file_spike(py::dict elm) {
 		auto sc_time = elm["time"].cast<int>();
-		auto dest_core = elm["dest_core"].cast<int>();
-		auto dest_axon = elm["dest_axon"].cast<int>();
+		auto dest_core = elm["core"].cast<int>();
+		auto dest_axon = elm["axon"].cast<int>();
 		FileSpike sp;
 		sp.time = sc_time;
 		sp.dest_core = dest_core;
