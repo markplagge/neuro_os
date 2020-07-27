@@ -19,9 +19,9 @@ namespace neuro_os {
 		SC_BASE_INIT = 1 << 6
 	};
 	struct FileSpike{
-		int time;
-		int dest_core;
-		int dest_axon;
+		int time = -1;
+		int dest_core = -1;
+		int dest_axon = -1;
 	};
 	class NemoNosScheduler {
 		py::scoped_interpreter guard{};

@@ -8,7 +8,6 @@ add_subdirectory(extern/pybind11)
 
 set(NEURO_OS_LIB
         include/neuro_os.h
-        lib/json.hpp
         src/SimProcess.cpp
         src/SimProcess.h
         src/process_states.h
@@ -24,23 +23,30 @@ set(NEURO_OS_LIB
         src/NemoNosScheduler.h)
 
 add_library(neuro_os  ${NEURO_OS_LIB} )
+set(PYBIND11_CPP_STANDARD -std=c++11)
 if (NOS_IN_NEMO)
+    message("NOS inside nemo")
+    message("Current src fldr: ${CMAKE_CURRENT_SOURCE_DIR}")
+    message("Src fldr: ${CMAKE_SOURCE_DIR}")
+    message("PB FLDR: ${PYBIND11_INCLUDE_DIR}")
+    target_link_libraries(neuro_os PRIVATE pybind11::embed)
+    target_include_directories(neuro_os PRIVATE ${CMAKE_SOURCE_DIR}/external/nlohmann ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11/include)
+else()
+    target_link_libraries(neuro_os PRIVATE pybind11::embed ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+    target_include_directories(neuro_os PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/external/nlohmann ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11/include)
     add_executable(neuro_os_bin main.cpp)
+    target_link_libraries(neuro_os_bin PRIVATE neuro_os pybind11::embed)
+    target_include_directories(neuro_os_bin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11  ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11/include
+            ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11/include/pybind11 ${PYBIND11_INCLUDE_DIR})
 endif()
 
+target_include_directories(neuro_os PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11 extern/pybind11/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11/include/pybind11
+        ${PYBIND11_INCLUDE_DIR})
 
-
-
-set(PYBIND11_CPP_STANDARD -std=c++11)
-
-target_link_libraries(neuro_os PRIVATE pybind11::embed)
 #target_link_libraries(neuro_os_bin neuro_os)
-target_link_libraries(neuro_os_bin PRIVATE neuro_os pybind11::embed)
-target_include_directories(neuro_os PUBLIC extern/pybind11 extern/pybind11/include extern/pybind11/include/pybind11 ${PYBIND11_INCLUDE_DIR})
-target_include_directories(neuro_os_bin PUBLIC extern/pybind11 extern/pybind11/include extern/pybind11/include/pybind11 ${PYBIND11_INCLUDE_DIR})
-include_directories(${PYBIND11_INCLUDE_DIR} extern/pybind11/include/)
-
-
+include_directories(${PYBIND11_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/extern/pybind11)
 
 #target_link_libraries(fcfs_logic_system simclist)
 set_property(TARGET neuro_os PROPERTY CXX_STANDARD 14)
