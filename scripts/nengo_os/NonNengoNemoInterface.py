@@ -225,6 +225,7 @@ def compute_nos_conventional(mode="FCFS", total_cores=4096, time_slice=50, multi
 
     event_tracker = EventTracker(scheduler,0)
     print(f"{'-|-'*10} INTERNAL SCHEDULER - RUNNING FOR {end_ts} ticks")
+    alertus = False
     for i in tqdm.tqdm(range(end_ts)):
         ts = [p.current_state == "DONE" for p in scheduler.queue.run_q]
         if (ts and all(ts) ): # or scheduler.is_done:
@@ -232,8 +233,16 @@ def compute_nos_conventional(mode="FCFS", total_cores=4096, time_slice=50, multi
         rp, wp = save_scheduler_instructions(scheduler, rp, wp)
         t.append(i)
         scheduler.scheduler_run_tick()
+        if not alertus and len( scheduler.queue.run_q ) > 0:
+            alertus = f"First process will start at ~ {i}"
         event_tracker.update(scheduler)
 
+    if alertus:
+        print(alertus)
+    else:
+        print("NO SCHEDULED STARTS FOUND")
+        print(scheduler.queue.run_q)
+        print(str(scheduler.queue.wait_q[0]))
     return event_tracker, t, wp, rp
 
 
