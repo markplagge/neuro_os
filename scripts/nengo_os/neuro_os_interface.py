@@ -265,27 +265,27 @@ class NemoNengoInterface(NemoNengoInterfaceBase):
     @staticmethod
     def paper_procs():
         return [       # name   id arrival1,+2,      comp_t, needed_cores
-            SimpleProc("Cifar",      1, 0,0,         4450, 4038), #test single process
-            SimpleProc("SAR",        2, 4450,4450,   1125, 3974),
-            SimpleProc("Tonic",      3, 5575,5575,   8,    2),
-            SimpleProc("Saturation", 4, 5575,5575,   81,   1439),
-            SimpleProc("Cifar",      1, 5664,5664,   5325, 4038),
-            SimpleProc("SAR",        2, 10989,10989, 1876, 3974),
-            SimpleProc("Tonic",      3, 12865,12865, 7,    2),
-            SimpleProc("Cifar",      1, 12872,12872, 5649, 4038),
-            SimpleProc("SAR",        2, 18521,18521, 1196, 3974),
-            SimpleProc("Tonic",      3, 19717,19717, 8, 2)
+            SimpleProc("Cifar",      1, 0,0,         4450, 4038,1), #test single process
+            SimpleProc("SAR",        2, 4450,4450,   1125, 3974,2),
+            SimpleProc("Tonic",      3, 5575,5575,   8,    2   ,3),
+            SimpleProc("Saturation", 4, 5575,5575,   81,   1439,4),
+            SimpleProc("Cifar",      1, 5664,5664,   5325, 4038,5),
+            SimpleProc("SAR",        2, 10989,10989, 1876, 3974,6),
+            SimpleProc("Tonic",      3, 12865,12865, 7,    2   ,7),
+            SimpleProc("Cifar",      1, 12872,12872, 5649, 4038,8),
+            SimpleProc("SAR",        2, 18521,18521, 1196, 3974,9),
+            SimpleProc("Tonic",      3, 19717,19717, 8, 2      ,10)
         ]
 
     @staticmethod
     def rr_paper_procs():
         return [       # name   id arrival1,+2, comp_t, needed_cores
-            SimpleProc("Cifar", 1, 0, 0,        4000, 4038),  # test single process
-            SimpleProc("SAR",   2, 0, 0,        1000, 3974),
-            SimpleProc("Cifar", 3, 0, 0,        4000, 4038),  # test single process
-            SimpleProc("SAR",   4, 110, 110,      1000, 3974),
-            SimpleProc("Cifar", 5, 110, 110,      4000, 4038),  # test single process
-            SimpleProc("SAR",   6, 110, 110,      1000, 3974)
+            SimpleProc("Cifar", 1, 0, 0,        4000, 4038  ,1),  # test single process
+            SimpleProc("SAR",   2, 0, 0,        1000, 3974  ,2),
+            SimpleProc("Cifar", 3, 0, 0,        4000, 4038  ,3),  # test single process
+            SimpleProc("SAR",   4, 110, 110,      1000, 3974,4),
+            SimpleProc("Cifar", 5, 110, 110,      4000, 4038,5),  # test single process
+            SimpleProc("SAR",   6, 110, 110,      1000, 3974,6)
 
         ]
 
