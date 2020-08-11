@@ -17,3 +17,6 @@ scripts/results/run_result.sqlite
 .DS_Store
 
 scripts/scheduler_instructions.json
+
+scripts/results/run_result_backup-0-.sqlite
+scripts/results/run_result_*
