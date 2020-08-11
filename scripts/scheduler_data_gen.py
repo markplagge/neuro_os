@@ -59,7 +59,8 @@ def generate_proc_sql(run_id, scheduler, cur):
         i += 1
         job_stats_sql.job_stats()
         job_data.append(job_stats_sql)
-        p.job_id = job_stats_sql.job_id
+        #p.job_id = job_stats_sql.job_id
+        p.set_job_id(job_stats_sql.job_id)
     return job_data
 
 
@@ -244,9 +245,10 @@ cur = conn.cursor()
 model_data_file = Path("/Users/plaggm/dev/nemo-codes/config/paper_models.json")
 sched_type = "RR"
 rr_ts = 100
+#rr_ts = 4455
 scheduler = ConventScheduler(mode=sched_type, total_cores=4096, time_slice=rr_ts,
                              proc_js_file= str(model_data_file.absolute()))
-scheduler = ConventScheduler(mode=sched_type, total_cores=4096, time_slice=rr_ts)
+# scheduler = ConventScheduler(mode=sched_type, total_cores=4096, time_slice=rr_ts)
 #                             proc_js_file= str(model_data_file.absolute()))
 run_id = init_run_in_sql(sched_type, rr_ts, "")
 p = scheduler.queue.wait_q[0]
@@ -275,6 +277,9 @@ for i in tqdm.tqdm(range(sttl * 10)):
     rp, wp = save_scheduler_instructions(scheduler, rp, wp)
     t.append(i)
     scheduler.scheduler_run_tick()
+    if len(scheduler.queue.run_q) > 1:
+        print("RUN QUEUE WAS BIGGER")
+
     #evt_tracker.update(scheduler)
     inst.add_instruction(i,scheduler.queue.wait_q, scheduler.queue.run_q)
     for jd in job_data:

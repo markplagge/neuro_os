@@ -70,7 +70,7 @@ class Process:
         if self._current_state == process_states[3]:  # pre_wait
             if self.pre_wait_time >= self.start_time:
                 self._current_state = process_states[0]
-                # return process_states[0]
+                return process_states[0]
         elif self._current_state == process_states[0]:  # wait:
             if self.wait_time < self.start_time:
                 self._current_state = process_states[3]  ## Pre wait since start_time is not yet hit
@@ -99,6 +99,7 @@ class Process:
             self.current_run_time += 1
         elif self.current_state() == process_states[3]:
             self.pre_wait_time += 1
+            
 
         if self.run_time >= self.needed_time:
             self.set_current_state( process_states[2])
@@ -792,6 +793,9 @@ class RRProcessStatus(Process):
     state_callback = None
     tick_callback = None
 
+    def set_job_id(self, new_id):
+        self._job_id = new_id
+
     def set_current_state(self, value):
         if (
             value == "RUNNING"
@@ -809,6 +813,8 @@ class RRProcessStatus(Process):
     def tick(self):
         self.tick_time += 1
         super().tick()
+        if self._current_state == "PRE_WAIT" and (self.start_time <= self.tick_time):
+            self.set_current_state("WAITING")
         if self.tick_callback is not None:
             self.tick_callback(self)
 
@@ -853,5 +859,8 @@ class SimpleProc:
         m = f"P.Name:{self.name} P.id:{self.id} P.arrival_time:{self.arrival} P.compute{self.compute} P.cores:{self.cores}" \
             f"P.c_time:{self.current_time} P.state:{self.state}"
         return m
+
+    def set_task_id(self, new_id):
+        self._task_id = new_id
 
 #PREDEFINED PROC GENERATION
